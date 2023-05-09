@@ -54,14 +54,14 @@
                                             @endforeach
                                         </div>
                                         <div class="text-center">
-                                            <button type="button"
-                                                    class="btn btn-primary waves-effect waves-light mt-2 me-1">
-                                                <i class="bx bx-cart me-2"></i> Add to cart
-                                            </button>
-                                            <button type="button"
-                                                    class="btn btn-success waves-effect  mt-2 waves-light">
-                                                <i class="bx bx-shopping-bag me-2"></i>Buy now
-                                            </button>
+{{--                                            <button type="button"--}}
+{{--                                                    class="btn btn-primary waves-effect waves-light mt-2 me-1">--}}
+{{--                                                <i class="bx bx-cart me-2"></i> Add to cart--}}
+{{--                                            </button>--}}
+{{--                                            <button type="button"--}}
+{{--                                                    class="btn btn-success waves-effect  mt-2 waves-light">--}}
+{{--                                                <i class="bx bx-shopping-bag me-2"></i>Buy now--}}
+{{--                                            </button>--}}
                                         </div>
 
                                     </div>
@@ -84,14 +84,14 @@
                                 </p>
                                 <p class="text-muted mb-4">( {{$product->reviews_num}} مراجعات )</p>
 
-                                @if($product->price_after)
+                                @if($product->price_after && $product->price_after != 0)
                                     <?php
                                         $discountPercent = (($product->price_before - $product->price_after) / $product->price_before) * 100;
                                         ?>
                                     <h6 class="text-success text-uppercase">خصم {{round($discountPercent,0)}} %  </h6>
                                 @endif
                                 <h5 class="mb-4">السعر :
-                                    @if($product->price_after)
+                                    @if($product->price_after && $product->price_after != 0)
                                         <span class="text-muted me-2"><del>{{$product->price_before}} ج م</del></span>
                                     @endif
                                     <b>{{$product->price_after}} ج م</b></h5>
@@ -179,107 +179,85 @@
                     <!-- end Specifications -->
 
                     <div class="mt-5">
-                        <h5>المراجعات والتعليقات :</h5>
-
-                        <div class="d-flex py-3 border-bottom">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="{{asset("assets/admin")}}/images/users/avatar-2.jpg" class="avatar-xs rounded-circle" alt="img"/>
+                        <div class="row">
+                            <div class="col-9">
+                                <h5>المراجعات والتعليقات :</h5>
                             </div>
-
-                            <div class="flex-grow-1">
-                                <h5 class="mb-1 font-size-15">Brian</h5>
-                                <p class="text-muted">If several languages coalesce, the grammar of the resulting
-                                    language.</p>
-                                <ul class="list-inline float-sm-end mb-sm-0">
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"><i class="far fa-thumbs-up me-1"></i> Like</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"><i class="far fa-comment-dots me-1"></i> Comment</a>
-                                    </li>
-                                </ul>
-                                <div class="text-muted font-size-12"><i
-                                        class="far fa-calendar-alt text-primary me-1"></i> 5 hrs ago
-                                </div>
+                            <div class="col-3">
+                                <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#addModal">اضافة تعليق</button>
                             </div>
                         </div>
-                        <div class="d-flex py-3 border-bottom">
-                            <div class="flex-shrink-0 me-3">
-                                <img src="{{asset("assets/admin")}}/images/users/avatar-4.jpg" class="avatar-xs rounded-circle" alt="img"/>
-                            </div>
-
-                            <div class="flex-grow-1">
-                                <h5 class="font-size-15 mb-1">Denver</h5>
-                                <p class="text-muted">To an English person, it will seem like simplified English, as a
-                                    skeptical Cambridge</p>
-                                <ul class="list-inline float-sm-end mb-sm-0">
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"><i class="far fa-thumbs-up me-1"></i> Like</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"><i class="far fa-comment-dots me-1"></i> Comment</a>
-                                    </li>
-                                </ul>
-                                <div class="text-muted font-size-12"><i
-                                        class="far fa-calendar-alt text-primary me-1"></i> 07 Oct, 2019
+                        @foreach($product->reviews as $rev)
+                            <div class="d-flex py-3 border-bottom" id="comment-{{$rev->id}}">
+                                <div class="flex-shrink-0 me-3">
+                                    <img src="{{getUserImage($rev->image)}}" class="avatar-xs rounded-circle" alt="img"/>
                                 </div>
-                                <div class="d-flex mt-4">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{asset("assets/admin")}}/images/users/avatar-5.jpg"
-                                             class="avatar-xs me-3 rounded-circle" alt="img"/>
-                                    </div>
 
-                                    <div class="flex-grow-1">
-                                        <h5 class="mb-1 font-size-15">Henry</h5>
-                                        <p class="text-muted">Their separate existence is a myth. For science, music,
-                                            sport, etc.</p>
-                                        <ul class="list-inline float-sm-end mb-sm-0">
-                                            <li class="list-inline-item">
-                                                <a href="javascript: void(0);"><i class="far fa-thumbs-up me-1"></i>
-                                                    Like</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="javascript: void(0);"><i class="far fa-comment-dots me-1"></i>
-                                                    Comment</a>
-                                            </li>
-                                        </ul>
-                                        <div class="text-muted font-size-12"><i
-                                                class="far fa-calendar-alt text-primary me-1"></i> 08 Oct, 2019
-                                        </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1 font-size-15">{{$rev->name}}
+                                        @for ($i = 1; $i <= $rev->stars; $i++)
+                                            <i class='bx bxs-star text-warning'></i>
+                                        @endfor
+                                        @for ($i = 5; $i > $rev->stars; $i--)
+                                            <i class='bx bx-star text-warning'></i>
+                                        @endfor
+                                    </h5>
+                                    <p class="text-muted">
+                                        {{$rev->desc}}
+                                       </p>
+                                    <ul class="list-inline float-sm-end mb-sm-0">
+                                        <li class="list-inline-item">
+                                            <button class="btn deleteCommentBtn" data-id="{{$rev->id}}"><i class="fa fa-trash me-1 text-danger"></i></button>
+                                        </li>
+                                    </ul>
+                                    <div class="text-muted font-size-12"><i
+                                            class="far fa-calendar-alt text-primary me-1"></i> {{$rev->created_at->diffForHumans()}}
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
 
-                        <div class="d-flex py-3 border-bottom">
-                            <div class="flex-shrink-0 me-3">
-                                <div class="avatar-xs">
-                                                        <span
-                                                            class="avatar-title bg-primary bg-soft text-primary rounded-circle font-size-16">
-                                                            N
-                                                        </span>
-                                </div>
-                            </div>
-
-                            <div class="flex-grow-1">
-                                <h5 class="mb-1 font-size-15">Neal</h5>
-                                <p class="text-muted">Everyone realizes why a new common language would be
-                                    desirable.</p>
-                                <ul class="list-inline float-sm-end mb-sm-0">
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"><i class="far fa-thumbs-up me-1"></i> Like</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"><i class="far fa-comment-dots me-1"></i> Comment</a>
-                                    </li>
-                                </ul>
-                                <div class="text-muted font-size-12"><i
-                                        class="far fa-calendar-alt text-primary me-1"></i> 05 Oct, 2019
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
+                </div>
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><span id="operationType"></span> اضافة تعليق </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form action="{{route('addComment')}}"  id="addForm" method="POST" enctype="multipart/form-data" >
+                            @csrf
+                            <div class="modal-body" id="modal-body">
+                                <div class="mb-3 h-25">
+                                    <label class="form-label">الصورة</label>
+                                    <input type="file" class="dropify" name="image" data-default-file="{{getUserImage()}}"
+                                           accept="image/png, image/gif, image/jpeg,image/jpg, image/webp"/>
+                                    <span class="form-text text-info">مسموح فقط بالصيغ الاتية : png, gif, jpeg, jpg, webp</span>
+                                </div>
+                                <input type="hidden" name="product_id" class="form-control" value="{{$product->id}}">
+                                <div class="mb-3">
+                                    <label class="form-label">الاسم</label>
+                                    <input type="text" name="name" class="form-control" placeholder="">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">التعليق</label>
+                                    <input type="text" name="desc" class="form-control" placeholder="">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">عدد النجوم</label>
+                                    <input type="number" min="1" max="5" name="stars" value="5" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" id="addButton">اضافة</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- end card -->
@@ -287,104 +265,14 @@
     </div>
     <!-- end row -->
 
-    <div class="row mt-3">
-        <div class="col-lg-12">
-            <div>
-                <h5 class="mb-3">منتجات متعلقة</h5>
 
-                <div class="row">
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4">
-                                        <img src="{{asset("assets/admin")}}/images/product/img-7.png" alt=""
-                                             class="img-fluid mx-auto d-block">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="text-center text-md-start pt-3 pt-md-0">
-                                            <h5 class="text-truncate"><a href="javascript: void(0);" class="text-dark">Wireless
-                                                    Headphone</a></h5>
-                                            <p class="text-muted mb-4">
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star"></i>
-                                            </p>
-                                            <h5 class="my-0"><span class="text-muted me-2"><del>$240</del></span> <b>$225</b>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4">
-                                        <img src="{{asset("assets/admin")}}/images/product/img-4.png" alt=""
-                                             class="img-fluid mx-auto d-block">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="text-center text-md-start pt-3 pt-md-0">
-                                            <h5 class="text-truncate"><a href="javascript: void(0);" class="text-dark">Phone
-                                                    patterned cases</a></h5>
-                                            <p class="text-muted mb-4">
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star"></i>
-                                            </p>
-                                            <h5 class="my-0"><span class="text-muted me-2"><del>$150</del></span> <b>$145</b>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4">
-                                        <img src="{{asset("assets/admin")}}/images/product/img-6.png" alt=""
-                                             class="img-fluid mx-auto d-block">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="text-center text-md-start pt-3 pt-md-0">
-
-                                            <h5 class="text-truncate"><a href="javascript: void(0);" class="text-dark">Phone
-                                                    Dark Patterned cases</a></h5>
-                                            <p class="text-muted mb-4">
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star text-warning"></i>
-                                                <i class="bx bxs-star"></i>
-                                            </p>
-                                            <h5 class="my-0"><span class="text-muted me-2"><del>$138</del></span> <b>$135</b>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-            </div>
-        </div>
-    </div>
-    <!-- end row -->
 
 @endsection
 @section('dashboard-js')
 <script>
+
+    $('.dropify').dropify("Upload Here");
+
     $(document).on('click', '.deleteBtn', function () {
         var id = $(this).data('id');
         swal.fire({
@@ -442,7 +330,110 @@
             });
         });
     });
+
+    $(document).on('click', '.deleteCommentBtn', function () {
+        var id = $(this).data('id');
+        swal.fire({
+            title: "حذف تعليق",
+            text: "هل انت متأكد من حذف هذا التعليق ؟",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#dc5339",
+            confirmButtonText: "نعم, احذف !",
+            cancelButtonText: "تراجع",
+            okButtonText: "اضافة",
+            closeOnConfirm: false
+        }).then((result) => {
+            if (!result.isConfirmed) {
+                return true;
+            }
+            var url = '{{ route("products.deleteComment",":id") }}';
+            url = url.replace(':id', id)
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                beforeSend: function () {
+                    $('#loader-overlay').show()
+                },
+                success: function (data) {
+
+                    window.setTimeout(function () {
+                        $('#loader-overlay').hide()
+                        if (data.status == 200) {
+                            toastr.success((data.message) ?? 'تم حذف البيانات بنجاح')
+                            $(`#comment-${data.id}`).removeClass('d-flex py-3 border-bottom').fadeOut();
+                        }
+                        else
+                            toastr.error('عذرا هناك خطأ فني 😞');
+                    }, 300);
+                }, error: function (data) {
+
+                    if (data.status === 500) {
+                        toastr.error('عذرا هناك خطأ فني 😞');
+                    }
+                    if (data.status === 422) {
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors, function (key, value) {
+                            if ($.isPlainObject(value)) {
+                                $.each(value, function (key, value) {
+                                    toastr.error(value)
+                                });
+                            }
+                        });
+                    }
+                }
+
+            });
+        });
+    });
+
+
+    $(document).on('submit', 'Form#addForm', function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var url = $('#addForm').attr('action');
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            beforeSend: function () {
+                $('#addButton').html('<span style="margin-right: 4px;">انتظر ..</span><i class="bx bx-loader bx-spin"></i>');
+            },
+            success: function (data) {
+                if (data.status == 200) {
+                    window.location.reload();
+                    // show custom message or use the default
+                    toastr.success((data.message) ?? 'تم اضافة البيانات بنجاح');
+                } else
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                $('#addButton').html(`اضافة`).attr('disabled', false);
+                $('#editOrCreate').modal('hide')
+            },
+            error: function (data) {
+                if (data.status === 500) {
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                } else if (data.status === 422) {
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors, function (key, value) {
+                        if ($.isPlainObject(value)) {
+                            $.each(value, function (key, value) {
+                                toastr.error(value);
+                            });
+                        }
+                    });
+                } else
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                $('#addButton').html(`اضافة`).attr('disabled', false);
+            },//end error method
+
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+
 </script>
+
 @endsection
 
 

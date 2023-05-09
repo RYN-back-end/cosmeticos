@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     #### Products ####
     Route::resource('products', ProductController::class);
     Route::DELETE('products.deleteImage/{id}', [ProductController::class,'deleteImage'])->name('products.deleteImage');
+    Route::POST('addComment', [ProductController::class,'addComment'])->name('addComment');
+    Route::DELETE('products.deleteComment/{id}', [ProductController::class,'deleteComment'])->name('products.deleteComment');
 
 });
 

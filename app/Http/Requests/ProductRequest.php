@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
         if ($this->id){
             return [
                 'image'        => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
-                'title'        => 'required|string|max:255',
+                'title'        => 'required|string|max:255|unique:products,title,'.$this->id,
                 'desc'         => 'required',
                 'price_before' => 'required|numeric|min:0.01',
                 'price_after'  => 'nullable|numeric',
@@ -37,7 +37,7 @@ class ProductRequest extends FormRequest
         else{
             return [
                 'image'        => 'required|image|mimes:jpeg,png,jpg,gif,webp',
-                'title'        => 'required|string|max:255',
+                'title'        => 'required|unique:products,title|string|max:255',
                 'desc'         => 'required',
                 'price_before' => 'required|numeric|min:0.01',
                 'price_after'  => 'nullable|numeric',

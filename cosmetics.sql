@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2023 at 03:12 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 09, 2023 at 11:57 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -83,7 +83,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (15, '2023_04_02_205801_create_admins_table', 1),
 (18, '2023_05_04_021724_create_product_images_table', 3),
-(19, '2023_05_04_011416_create_products_table', 4);
+(19, '2023_05_04_011416_create_products_table', 4),
+(21, '2023_05_09_184751_create_reviews_table', 5);
 
 -- --------------------------------------------------------
 
@@ -140,8 +141,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `image`, `title`, `desc`, `price_before`, `price_after`, `reviews_num`, `stars`, `created_at`, `updated_at`) VALUES
-(1, 'assets/uploads/products/71231683201585.webp', 'مستحضر تجميلي', 'Culpa quibusdam ess', '472.00', '64.00', 83, '2', '2023-05-04 08:59:45', '2023-05-04 08:59:45'),
-(2, 'assets/uploads/products/16271683202038.webp', 'صباع روج', 'Sint deserunt qui as', '120.00', '87.00', 0, '3', '2023-05-04 09:07:18', '2023-05-04 09:07:18');
+(1, 'assets/uploads/products/71231683201585.webp', 'مستحضر تجميلي', 'Culpa quibusdam ess', 472.00, 64.00, 83, '2', '2023-05-04 08:59:45', '2023-05-04 08:59:45'),
+(2, 'assets/uploads/products/16271683202038.webp', 'صباع روج', 'Sint deserunt qui as', 120.00, 87.00, 0, '3', '2023-05-04 09:07:18', '2023-05-04 09:07:18'),
+(3, 'assets/uploads/products/17221683666341.webp', 'Eum aliquip facere u', 'Est molestias quia r Est molestias quia r Est molestias quia r Est molestias quia rEst molestias quia r Est molestias quia r', 1000.00, NULL, 46, '2', '2023-05-09 19:05:42', '2023-05-09 19:05:42'),
+(4, 'assets/uploads/products/28701683666987.webp', 'Qui ad consequatur', 'Qui reprehenderit es', 308.00, 0.00, 48, '4', '2023-05-09 19:16:27', '2023-05-09 19:16:27'),
+(5, 'assets/uploads/products/23231683669219.webp', 'صباع روج', 'Corporis voluptates', 310.00, 910.00, 11, '1', '2023-05-09 19:53:39', '2023-05-09 19:53:39');
 
 -- --------------------------------------------------------
 
@@ -156,6 +160,42 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
+(8, 3, 'assets/uploads/products/61231683666342.webp', '2023-05-09 19:05:42', '2023-05-09 19:05:42'),
+(9, 3, 'assets/uploads/products/17741683666342.webp', '2023-05-09 19:05:42', '2023-05-09 19:05:42'),
+(10, 4, 'assets/uploads/products/99951683666987.webp', '2023-05-09 19:16:27', '2023-05-09 19:16:27'),
+(11, 4, 'assets/uploads/products/84501683666987.webp', '2023-05-09 19:16:27', '2023-05-09 19:16:27'),
+(12, 5, 'assets/uploads/products/58131683669219.webp', '2023-05-09 19:53:39', '2023-05-09 19:53:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `stars` enum('1','2','3','4','5') NOT NULL DEFAULT '5',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `product_id`, `image`, `name`, `desc`, `stars`, `created_at`, `updated_at`) VALUES
+(14, 2, NULL, 'Halla Ford', 'Do proident aliqua', '3', '2023-05-09 18:58:50', '2023-05-09 18:58:50'),
+(16, 2, NULL, 'Jana Reynolds', 'Necessitatibus odit', '2', '2023-05-09 18:59:06', '2023-05-09 18:59:06');
 
 -- --------------------------------------------------------
 
@@ -226,6 +266,13 @@ ALTER TABLE `product_images`
   ADD KEY `product_images_product_id_foreign` (`product_id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reviews_product_id_foreign` (`product_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -252,7 +299,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -264,13 +311,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -287,6 +340,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `product_images`
   ADD CONSTRAINT `product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
