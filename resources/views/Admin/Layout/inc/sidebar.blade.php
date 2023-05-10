@@ -39,6 +39,14 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="{{route('contacts.index')}}" class="waves-effect">
+                        <i class="bx bx-message"></i>
+                        <span key="t-Contacts">طلبات التواصل</span>
+                    </a>
+                </li>
+
+
 
             </ul>
         </div>

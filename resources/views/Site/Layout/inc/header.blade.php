@@ -2,7 +2,7 @@
     <div class="header-top-campaign">
         <div class="container position-relative">
             <div class="campaign-content">
-                <p>انطلق الان الي العالم المفتوح <a href="#">استكشف الان</a></p>
+                <p>شحن مجاني للمنتجات فوق 350 ج.م <a href="#">عرض المنتجات</a></p>
             </div>
         </div>
         <button class="remove-campaign"><i class="fal fa-times"></i></button>
@@ -14,10 +14,10 @@
         <div class="container">
             <div class="header-navbar">
                 <div class="header-brand">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="{{route('/')}}" class="logo logo-dark">
                         <img src="{{asset('assets/site')}}/images/logo/logo.png" alt="Site Logo">
                     </a>
-                    <a href="index.html" class="logo logo-light">
+                    <a href="{{route('/')}}" class="logo logo-light">
                         <img src="{{asset('assets/site')}}/images/logo/logo-light.png" alt="Site Logo">
                     </a>
                 </div>
@@ -26,16 +26,16 @@
                     <nav class="mainmenu-nav">
                         <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
                         <div class="mobile-nav-brand">
-                            <a href="index.html" class="logo">
+                            <a href="{{route('/')}}" class="logo">
                                 <img src="{{asset('assets/site')}}/images/logo/logo.png" alt="Site Logo">
                             </a>
                         </div>
                         <ul class="mainmenu">
-                            <li><a href="index-1.html">الرئيسية</a></li>
+                            <li><a href="{{route('/')}}">الرئيسية</a></li>
                             <li><a href="#">المنتجات</a></li>
                             <li><a href="#">المقالات</a></li>
                             <li><a href="#">من نحن</a></li>
-                            <li><a href="#">تواصل معنا</a></li>
+                            <li><a href="{{route('contactUs')}}">تواصل معنا</a></li>
                         </ul>
                     </nav>
                     <!-- End Mainmanu Nav -->

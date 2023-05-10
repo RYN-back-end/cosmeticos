@@ -16,7 +16,6 @@
 
         methods: function(e) {
             axilInit.w();
-            axilInit.contactForm();
             axilInit.axilBackToTop();
             axilInit.shopFilterWidget();
             axilInit.mobileMenuActivation();
@@ -25,10 +24,10 @@
             axilInit.priceRangeSlider();
             axilInit.quantityRanger();
             axilInit.axilSlickActivation();
-            axilInit.countdownInit('.coming-countdown', '2022/10/01');
-            axilInit.campaignCountdown('.campaign-countdown', '2022/10/01');
-            axilInit.countdownInit('.poster-countdown', '2022/10/01');
-            axilInit.countdownInit('.sale-countdown', '2022/10/31');
+            axilInit.countdownInit('.coming-countdown', '2023/10/01');
+            axilInit.campaignCountdown('.campaign-countdown', '2023/10/01');
+            axilInit.countdownInit('.poster-countdown', '2023/10/01');
+            axilInit.countdownInit('.sale-countdown', '2023/10/31');
             axilInit.sideOffcanvasToggle('.cart-dropdown-btn', '#cart-dropdown');
             axilInit.sideOffcanvasToggle('.mobile-nav-toggler', '.header-main-nav');
             axilInit.sideOffcanvasToggle('.department-side-menu', '.department-nav-menu');
@@ -44,47 +43,15 @@
             axilInit.axilMasonary();
             axilInit.counterUpActivation();
             axilInit.scrollSmoth();
-           
-           
+
+
         },
 
         w: function(e) {
             this._window.on('load', axilInit.l).on('scroll', axilInit.res)
         },
 
-        contactForm: function() {
-            $('.axil-contact-form').on('submit', function(e) {
-                e.preventDefault();
-                var _self = $(this);
-                var _selector = _self.closest('input,textarea');
-                _self.closest('div').find('input,textarea').removeAttr('style');
-                _self.find('.error-msg').remove();
-                _self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
-                var data = $(this).serialize();
-                $.ajax({
-                    url: 'mail.php',
-                    type: "post",
-                    dataType: 'json',
-                    data: data,
-                    success: function(data) {
-                        _self.closest('div').find('button[type="submit"]').removeAttr('disabled');
-                        if (data.code == false) {
-                            _self.closest('div').find('[name="' + data.field + '"]');
-                            _self.find('.axil-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
-                        } else {
-                            $('.error-msg').hide();
-                            $('.form-group').removeClass('focused');
-                            _self.find('.axil-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
-                            _self.closest('div').find('input,textarea').val('');
 
-                            setTimeout(function() {
-                                $('.success-msg').fadeOut('slow');
-                            }, 5000);
-                        }
-                    }
-                });
-            });
-        },
 
         counterUpActivation: function () {
 			var _counter = $('.count');
@@ -142,7 +109,7 @@
         },
 
         mobileMenuActivation: function(e) {
-            
+
             $('.menu-item-has-children > a').on('click', function(e) {
 
                 var targetParent = $(this).parents('.header-main-nav');
@@ -396,7 +363,7 @@
                 rtl: true,
                 prevArrow: '<button class="slide-arrow prev-arrow"><i class="fal fa-long-arrow-left"></i></button>',
                 nextArrow: '<button class="slide-arrow next-arrow"><i class="fal fa-long-arrow-right"></i></button>',
-                
+
             });
 
             $('.new-arrivals-product-activation').slick({
@@ -967,7 +934,7 @@
 
         offerPopupActivation: function() {
             if ($('body').hasClass('newsletter-popup-modal')) {
-                setTimeout(function(){ 
+                setTimeout(function(){
                     $('body').addClass('open');
                     $('#offer-popup-modal').addClass('open');
                 }, 1000);
@@ -983,7 +950,7 @@
                         filter: filterValue
                     });
                 });
-                
+
                 // init Isotope
                 var $grid = $('.isotope-list').isotope({
                     itemSelector: '.product',
@@ -996,7 +963,7 @@
                     }
                 });
             });
-        
+
             $('.isotope-button button').on('click', function (event) {
                 $(this).siblings('.is-checked').removeClass('is-checked');
                 $(this).addClass('is-checked');

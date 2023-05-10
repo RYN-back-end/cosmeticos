@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     #### Admins ####
     Route::resource('admins', AdminController::class);
 
+    #### Contacts ####
+    Route::resource('contacts', ContactUsController::class);
+
     #### Products ####
     Route::resource('products', ProductController::class);
     Route::DELETE('products.deleteImage/{id}', [ProductController::class,'deleteImage'])->name('products.deleteImage');
+    Route::POST('addComment', [ProductController::class,'addComment'])->name('addComment');
+    Route::DELETE('products.deleteComment/{id}', [ProductController::class,'deleteComment'])->name('products.deleteComment');
 
 });
 

@@ -22,4 +22,11 @@
 <link rel="stylesheet" href="{{asset('assets/site')}}/css/vendor/magnific-popup.css">
 <link rel="stylesheet" href="{{asset('assets/site')}}/css/vendor/base.css">
 <link rel="stylesheet" href="{{asset('assets/site')}}/css/style.min.css">
+<!-- Toastr Css -->
+<link href="{{asset('assets/main')}}/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<style>
+    .toast-message{
+        font-size: 15px;
+    }
+</style>
 @yield('dashboard-css')

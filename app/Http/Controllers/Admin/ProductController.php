@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Review;
 use App\Traits\ResponseTrait;
 use App\Traits\UploadFiles;
 use Illuminate\Http\Request;
@@ -73,8 +75,33 @@ class ProductController extends Controller
     }
 
     public function show($id){
-        $product = Product::with('images')->findOrFail($id);
+        $product = Product::with(['images','reviews' => function ($query) {
+            $query->latest();
+        }])->findOrFail($id);
         return view('Admin.CRUD.Product.parts.details',compact('product'));
+    }
+
+    public function addComment(CommentRequest $request){
+        $validatedData = $request->validated();
+
+        if ($request->has('image'))
+            $validatedData['image'] = $this->saveFile($request->image, 'assets/uploads/reviews', 'yes', 50);
+
+        Review::create($validatedData);
+
+        return $this->addResponse("تم اضافة تعليق جديد");
+    }
+
+    public function deleteComment($id) {
+        $row = Review::findOrFail($id);
+        if (file_exists($row->image)) {
+            unlink($row->image);
+        }
+        $row->delete();
+        return response()->json([
+            'status' => 200,
+            'id' => $id
+        ]);
     }
 
 
