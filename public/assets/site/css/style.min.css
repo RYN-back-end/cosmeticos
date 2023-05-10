@@ -5612,7 +5612,9 @@ a.axil-btn.wishlist-btn:hover:before, button.axil-btn.wishlist-btn:hover:before 
 }
 
 .testimonial-style-one .media .thumbnail img {
-    border-radius: 6px
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
 }
 
 .testimonial-style-one .media .media-body {
@@ -8609,6 +8611,8 @@ body.open .closeMask {
 .axil-product > .thumbnail > a img {
     border-radius: 6px;
     width: 100%;
+    height: 267px;
+    width: 267px;
     transition: .3s
 }
 
