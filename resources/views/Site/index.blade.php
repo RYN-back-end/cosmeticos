@@ -1,169 +1,35 @@
 @extends('Site.Layout.app')
 @section('content')
+    @if($sliders->count())
     <div class="axil-main-slider-area main-slider-style-1">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-sm-6">
                     <div class="main-slider-content">
                         <div class="slider-content-activation-one">
-                            <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="400" data-sal-duration="800">
-                                <span class="subtitle"><i class="fas fa-fire"></i> اقوي خصومات الاسبوع</span>
-                                <h1 class="title">سماعة روكو الكترونية</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                                <span class="rating-icon">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </span>
-                                            <span class="review-text">
-                                            <span>100+</span> تقييم
-                                                </span>
+                            @foreach($sliders as $slider)
+                                <div class="single-slide slick-slide" {{($loop->first) ? 'data-sal="slide-up" data-sal-delay="400" data-sal-duration="800"' : ''}}>
+                                    <span class="subtitle"><i class="fas fa-fire"></i>{{$slider->sub_title}}</span>
+                                    <h1 class="title">{{$slider->title}}</h1>
+                                    <div class="slide-action">
+                                        <div class="shop-btn">
+                                            <a href="#" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <span class="subtitle"><i class="fas fa-fire"></i> عروض شهر مايو</span>
-                                <h1 class="title">ساعة يد سمارت</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                                <span class="rating-icon">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </span>
-                                            <span class="review-text">
-                                            <span>100+</span> تقييم
-                                                </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <span class="subtitle"><i class="fas fa-fire"></i> كمية محدودة جدا</span>
-                                <h1 class="title">سماعة وايرليس ابل</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                                <span class="rating-icon">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </span>
-                                            <span class="review-text">
-                                            <span>100+</span> تقييم
-                                                </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <span class="subtitle"><i class="fas fa-fire"></i> بخصومات كبيرة تصل الي 50%</span>
-                                <h1 class="title">ساعة سمارت كوبي</h1>
-                                <div class="slide-action">
-                                    <div class="shop-btn">
-                                        <a href="shop.html" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
-                                    </div>
-                                    <div class="item-rating">
-                                        <div class="thumb">
-                                            <ul>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author1.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author2.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author3.png" alt="Author"></li>
-                                                <li><img src="{{asset('assets/site')}}/images/others/author4.png" alt="Author"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="content">
-                                                <span class="rating-icon">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fal fa-star"></i>
-                                        </span>
-                                            <span class="review-text">
-                                            <span>100+</span> تقييم
-                                                </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 col-sm-6">
                     <div class="main-slider-large-thumb">
                         <div class="slider-thumb-activation-one axil-slick-dots mt--20">
-                            <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500">
-                                <img src="{{asset('assets/site')}}/images/product/product-38.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">يبدأ من</span>
-                                    <span class="price-amount">75.00 ج.م</span>
-                                </div>
+                            @foreach($sliders as $slider)
+                            <div class="single-slide slick-slide" {{($loop->first || $loop->iteration == 2) ? 'data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500"' : ''}}>
+                                <img src="{{getFile($slider->image)}}" alt="Product">
                             </div>
-                            <div class="single-slide slick-slide" data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500">
-                                <img src="{{asset('assets/site')}}/images/product/product-39.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">يبدأ من</span>
-                                    <span class="price-amount">75.00 ج.م</span>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <img src="{{asset('assets/site')}}/images/product/product-40.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">يبدأ من</span>
-                                    <span class="price-amount">75.00 ج.م</span>
-                                </div>
-                            </div>
-                            <div class="single-slide slick-slide">
-                                <img src="{{asset('assets/site')}}/images/product/product-41.png" alt="Product">
-                                <div class="product-price">
-                                    <span class="text">يبدأ من</span>
-                                    <span class="price-amount">75.00 ج.م</span>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -174,6 +40,7 @@
             <li class="shape-2"><img src="{{asset('assets/site')}}/images/others/shape-2.png" alt="Shape"></li>
         </ul>
     </div>
+    @endif
 
 {{--    <!-- Start Categorie Area  -->--}}
 {{--    <div class="axil-categorie-area bg-color-white axil-section-gapcommon">--}}
@@ -764,14 +631,14 @@
             <div class="product-area pb--50">
                 <div class="section-title-wrapper">
                     <span class="title-highlighter highlighter-primary"><i class="far fa-shopping-basket"></i>اجدد منتجاتنا</span>
-                    <h2 class="title">وصل حدديثا</h2>
+                    <h2 class="title">وصل حديثا</h2>
                 </div>
                 <div class="new-arrivals-product-activation slick-layout-wrapper--30 axil-slick-arrow  arrow-top-slide">
                     @foreach($latestProducts as $pro)
                         <div class="slick-single-layout">
                             <div class="axil-product product-style-two">
                                 <div class="thumbnail">
-                                    <a href="single-product.html">
+                                    <a href="{{route('productDetails',$pro->title)}}">
                                         <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500" src="{{getFile($pro->image)}}" alt="Product Images">
                                     </a>
                                     @if($pro->price_after && $pro->price_after != 0)
@@ -796,7 +663,7 @@
 {{--                                                </li>--}}
 {{--                                            </ul>--}}
 {{--                                        </div>--}}
-                                        <h5 class="title"><a href="single-product.html">{{$pro->title}}</a></h5>
+                                        <h5 class="title"><a href="{{route('productDetails',$pro->title)}}">{{$pro->title}}</a></h5>
                                         <div class="product-price-variant">
                                             @if($pro->price_after && $pro->price_after != 0)
                                                 <span class="price old-price">{{$pro->price_before}} ج م</span>
@@ -1020,7 +887,13 @@
                         toastr.success('تم الاشتراك بنجاح, سنرسل لك احدث العروض والاخبار ❤️');
                         $('#subscribeForm')[0].reset();
                         $('#sendBtn').html("اشتراك").attr('disabled', false);
-                    }else {
+                    }
+                    else if (data.status == 405) {
+                        toastr.warning('لقد قمت بالتسجيل مسبقا, سنرسل لك احدث العروض والاخبار ❤️');
+                        $('#subscribeForm')[0].reset();
+                        $('#sendBtn').html("اشتراك").attr('disabled', false);
+                    }
+                    else {
                         toastr.error('عذرا هناك خطأ فني 😞');
                     }
                 },

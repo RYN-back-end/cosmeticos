@@ -1,19 +1,18 @@
 @extends('Admin.Layout.app')
 @section('title')
-    Sliders
+    البانر المتحرك
 @endsection
 @section('pageName')
-    Sliders
+    البانر المتحرك
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
-                            <h4 class="card-title">Sliders Data</h4>
+                            <h4 class="card-title">البانر المتحرك</h4>
                             <p class="card-title-desc">
 
                             </p>
@@ -23,7 +22,7 @@
                             <div class="text-sm-end">
                                 <button type="button" id="addBtn"
                                         class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                        class="mdi mdi-plus me-1"></i> Add New
+                                        class="mdi mdi-plus me-1"></i> اضافة جديد
                                 </button>
                             </div>
                         </div>
@@ -33,11 +32,11 @@
                         <thead class="table-light">
                         <tr>
                             <th>ID</th>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Created at</th>
-                            <th>Actions</th>
+                            <th>الصورة</th>
+                            <th>العنوان</th>
+                            <th>العنوان الفرعي</th>
+                            <th>وقت الاضافة</th>
+                            <th>العمليات</th>
                         </tr>
                         </thead>
                     </table>
@@ -53,7 +52,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><span id="operationType"></span> Admin</h5>
+                    <h5 class="modal-title"><span id="operationType"></span> بيانات</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
@@ -71,13 +70,13 @@
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
+            {data: 'title', name: 'title'},
+            {data: 'sub_title', name: 'sub_title'},
             {data: 'created_at', name: 'created_at' },
             {data: 'actions', name: 'actions'},
         ];
     </script>
-    @include('Admin.Layout.inc.yajraHelper',['url'=>'admins']);
+    @include('Admin.Layout.inc.yajraHelper',['url'=>'sliders']);
 
 @endsection
 

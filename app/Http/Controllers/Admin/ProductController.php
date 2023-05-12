@@ -45,7 +45,7 @@ class ProductController extends Controller
                     return Str::limit($row->desc,'40');
                 })
                 ->editColumn('image', function ($row) {
-                    return ' <img src="' . getUserImage($row->image) . '" class="avatar-xs rounded-circle" onclick="window.open(this.src)">';
+                    return ' <img src="' . getFile($row->image) . '" class="avatar-xs rounded-circle" onclick="window.open(this.src)">';
                 })
                 ->addColumn('price', function ($row) {
                     if($row->price_after == 0 || $row->price_after == null)
@@ -173,6 +173,13 @@ class ProductController extends Controller
 
     public function deleteImage($image_id){
         $row = ProductImage::findOrFail($image_id);
+        // at least one photo should be existed to show image details
+        $countOfImages = ProductImage::where('product_id',$row->product_id)->get()->count();
+        if($countOfImages == 1){
+            return response()->json([
+                'status'  => 405,
+            ]);
+        }
         if (file_exists($row->image)) {
             unlink($row->image);
         }

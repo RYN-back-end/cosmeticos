@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     #### Contacts ####
     Route::resource('contacts', ContactUsController::class);
+
+    #### Sliders ####
+    Route::resource('sliders', SliderController::class);
 
     #### Products ####
     Route::resource('products', ProductController::class);

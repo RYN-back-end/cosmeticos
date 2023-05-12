@@ -40,6 +40,17 @@
                 </li>
 
                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-images"></i>
+                        <span key="t-dashboards">البانر المتحرك</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('sliders.index')}}" key="t-sliders"> عرض الكل</a></li>
+                        <li><a href="{{route('sliders.create')}}" class="create-model" key="t-product"> اضافة جديد</a></li>
+                    </ul>
+                </li>
+
+                <li>
                     <a href="{{route('contacts.index')}}" class="waves-effect">
                         <i class="bx bx-message"></i>
                         <span key="t-Contacts">طلبات التواصل</span>
