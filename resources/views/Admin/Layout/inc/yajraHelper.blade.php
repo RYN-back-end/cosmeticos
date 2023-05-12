@@ -150,7 +150,7 @@
                     $('#updateButton').html('<span style="margin-right: 4px;">انتظر ..</span><i class="bx bx-loader bx-spin"></i>');
                 },
                 success: function (data) {
-                    $('#updateButton').html(`Update`).attr('disabled', false);
+                    $('#updateButton').html(`تحديث`).attr('disabled', false);
                     if (data.status == 200) {
                         $('#main-datatable').DataTable().ajax.reload();
                         toastr.success((data.message) ?? 'تم تحديث البيانات بنجاح');
@@ -173,7 +173,7 @@
                         });
                     } else
                         toastr.error('عذرا هناك خطأ فني 😞');
-                    $('#updateButton').html(`Update`).attr('disabled', false);
+                    $('#updateButton').html(`تحديث`).attr('disabled', false);
                 },//end error method
 
                 cache: false,
