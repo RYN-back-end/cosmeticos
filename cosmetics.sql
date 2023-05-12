@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 11:15 PM
+-- Generation Time: May 12, 2023 at 05:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -66,8 +66,11 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(2, 'Murphy Rosario', 'napulapab@mailinator.com', '+1 (153) 138-5997', 'Praesentium et autem', 'Dolore excepturi rep', '2023-05-10 14:27:03', '2023-05-10 14:27:03'),
-(6, NULL, 'jahyxoqo@mailinator.com', NULL, NULL, NULL, '2023-05-10 17:33:22', '2023-05-10 17:33:22');
+(6, NULL, 'jahyxoqo@mailinator.com', NULL, NULL, NULL, '2023-05-10 17:33:22', '2023-05-10 17:33:22'),
+(7, 'Fulton Wilder', 'gywewirib@mailinator.com', '+1 (548) 294-1825', 'Nesciunt natus nesc', 'Quis consectetur am', '2023-05-10 21:36:20', '2023-05-10 21:36:20'),
+(8, NULL, 'rynprogrammer@gmail.com', NULL, NULL, NULL, '2023-05-11 11:29:04', '2023-05-11 11:29:04'),
+(9, NULL, 'ahmedtarekya100@gmail.com', NULL, NULL, NULL, '2023-05-12 00:05:14', '2023-05-12 00:05:14'),
+(10, NULL, 'admin@admin.com', NULL, NULL, NULL, '2023-05-12 00:07:58', '2023-05-12 00:07:58');
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2023_05_04_021724_create_product_images_table', 3),
 (19, '2023_05_04_011416_create_products_table', 4),
 (21, '2023_05_09_184751_create_reviews_table', 5),
-(22, '2023_05_10_171809_create_contact_us_table', 6);
+(22, '2023_05_10_171809_create_contact_us_table', 6),
+(23, '2023_05_11_234250_create_sliders_table', 7);
 
 -- --------------------------------------------------------
 
@@ -169,8 +173,10 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `image`, `title`, `desc`, `price_before`, `price_after`, `reviews_num`, `stars`, `created_at`, `updated_at`) VALUES
 (1, 'assets/uploads/products/71231683201585.webp', 'مستحضر تجميلي', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '472.00', '64.00', 83, '2', '2023-05-04 08:59:45', '2023-05-04 08:59:45'),
 (2, 'assets/uploads/products/16271683202038.webp', 'صباع روج', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '120.00', '87.00', 0, '3', '2023-05-04 09:07:18', '2023-05-04 09:07:18'),
-(3, 'assets/uploads/products/17221683666341.webp', 'تيست', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '1000.00', NULL, 46, '2', '2023-05-09 19:05:42', '2023-05-09 19:05:42'),
-(4, 'assets/uploads/products/28701683666987.webp', 'تيست', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '308.00', '0.00', 48, '4', '2023-05-09 19:16:27', '2023-05-09 19:16:27');
+(6, 'assets/uploads/products/48331683754937.webp', 'منتج تفتيح وجه', 'منتج تفتيح وجه باحدث المواد منتج تفتيح وجه باحدث المواد  منتج تفتيح وجه باحدث المواد', '75.00', '50.00', 12, '5', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
+(7, 'assets/uploads/products/71301683755015.webp', 'منتج تجريبي', 'منتج تجريبي منتج تجريبي منتج تجريبي منتج تجريبي منتج تجريبي', '250.00', '0.00', 33, '5', '2023-05-10 21:43:35', '2023-05-10 21:43:35'),
+(8, 'assets/uploads/products/38041683804968.webp', 'صباع روج', 'Voluptas aliqua Sim', '860.00', '506.00', 94, '3', '2023-05-11 11:36:08', '2023-05-11 11:36:08'),
+(9, 'assets/uploads/products/81681683815435.webp', 'اسم منتجح', 'وصصصصصصصصصصف', '300.00', '0.00', 12, '4', '2023-05-11 11:30:36', '2023-05-11 11:30:36');
 
 -- --------------------------------------------------------
 
@@ -191,10 +197,11 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(8, 3, 'assets/uploads/products/61231683666342.webp', '2023-05-09 19:05:42', '2023-05-09 19:05:42'),
-(9, 3, 'assets/uploads/products/17741683666342.webp', '2023-05-09 19:05:42', '2023-05-09 19:05:42'),
-(10, 4, 'assets/uploads/products/99951683666987.webp', '2023-05-09 19:16:27', '2023-05-09 19:16:27'),
-(11, 4, 'assets/uploads/products/84501683666987.webp', '2023-05-09 19:16:27', '2023-05-09 19:16:27');
+(13, 6, 'assets/uploads/products/95381683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
+(14, 6, 'assets/uploads/products/74281683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
+(15, 6, 'assets/uploads/products/26471683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
+(16, 6, 'assets/uploads/products/51451683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
+(21, 8, 'assets/uploads/products/17631683804968.webp', '2023-05-11 11:36:08', '2023-05-11 11:36:08');
 
 -- --------------------------------------------------------
 
@@ -218,10 +225,36 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `product_id`, `image`, `name`, `desc`, `stars`, `created_at`, `updated_at`) VALUES
-(14, 2, NULL, 'احمد طارق', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '4', '2023-05-09 18:58:50', '2023-05-09 18:58:50'),
-(16, 2, NULL, 'احمد مسعد', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '2', '2023-05-09 18:59:06', '2023-05-09 18:59:06'),
-(17, 2, NULL, 'شاهر اسماعيل', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\r\n', '5', '2023-05-09 18:59:06', '2023-05-09 18:59:06'),
-(18, 4, NULL, 'زياد نظم', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\r\n', '2', '2023-05-09 18:59:06', '2023-05-09 18:59:06');
+(19, 6, 'assets/uploads/reviews/81061683755080.webp', 'احمد طارق', 'المنتج رائع المنتج رائع  المنتج رائع  المنتج رائع  المنتج رائع  المنتج رائع  المنتج رائع', '5', '2023-05-10 21:44:40', '2023-05-10 21:44:40'),
+(20, 6, 'assets/uploads/reviews/70961683755163.webp', 'شاهر اسماعيل', 'نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل', '5', '2023-05-10 21:46:03', '2023-05-10 21:46:03'),
+(21, 7, 'assets/uploads/reviews/36701683755381.webp', 'زياد نظم', 'نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل', '4', '2023-05-10 21:49:41', '2023-05-10 21:49:41'),
+(22, 2, 'assets/uploads/reviews/96051683755467.webp', 'مسعد افراد', 'نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل', '3', '2023-05-10 21:51:07', '2023-05-10 21:51:07'),
+(24, 9, NULL, 'Kay Nash', 'Laborum Quae optio', '5', '2023-05-11 11:32:35', '2023-05-11 11:32:35'),
+(25, 9, NULL, 'Dahlia Herman', 'Sequi labore volupta', '3', '2023-05-11 11:32:49', '2023-05-11 11:32:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `sub_title` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `title`, `sub_title`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'اعتني بنضارة بشرتك وجمالك الان', 'افضل عروض الترويجية', 'assets/uploads/sliders/13451683851549.webp', '2023-05-11 21:20:51', '2023-05-11 21:32:29'),
+(2, 'معنا احدث المنتجات وافضلهم', 'اسال عن عرض التوفير', 'assets/uploads/sliders/22941683852062.webp', '2023-05-11 21:41:04', '2023-05-11 21:41:04'),
+(3, 'Porro ipsam consequu', 'Dolore ullam ut prov', 'assets/uploads/sliders/87301683852260.webp', '2023-05-11 21:44:20', '2023-05-11 21:44:20');
 
 -- --------------------------------------------------------
 
@@ -305,6 +338,12 @@ ALTER TABLE `reviews`
   ADD KEY `reviews_product_id_foreign` (`product_id`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -325,7 +364,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -337,7 +376,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -349,19 +388,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
