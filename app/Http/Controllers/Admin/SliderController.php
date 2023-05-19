@@ -41,8 +41,7 @@ class SliderController extends Controller
                 ->escapeColumns([])
                 ->make(true);
         }
-        $sliders = Slider::all();
-        return view('Admin.CRUD.Slider.index',compact('sliders'));
+        return view('Admin.CRUD.Slider.index');
     }
 
 
@@ -102,6 +101,6 @@ class SliderController extends Controller
             unlink($row->image);
         }
             $row->delete();
-            return $this->deleteResponse("تم حذف بيانات المشرف بنجاح");
+            return $this->deleteResponse("تم حذف بيانات الصورة بنجاح");
     }
 }

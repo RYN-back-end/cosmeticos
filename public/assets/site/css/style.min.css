@@ -19449,6 +19449,18 @@ select, .select2 {
     text-align: left
 }
 
+.blog-main-image{
+    width: 100%;
+    height: 400px;
+    border-radius : 20px;
+    margin-bottom: 10px;
+}
+.bradcrumb-thumb img{
+    height: 126px;
+    width: 130px;
+    border-radius: 50%;
+}
+
 .axil-breadcrumb-area .inner .bradcrumb-thumb:after {
     right: auto;
     left: 60px

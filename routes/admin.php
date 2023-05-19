@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +37,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     #### Sliders ####
     Route::resource('sliders', SliderController::class);
+
+    #### Blogs ####
+    Route::resource('blogs', BlogController::class);
+
+
+    #### Setting ####
+    Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::POST('settingUpdate', [SettingController::class, 'update'])->name('settingUpdate');
+
 
     #### Products ####
     Route::resource('products', ProductController::class);

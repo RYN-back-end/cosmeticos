@@ -17,7 +17,7 @@
                 <div class="col-lg-6 col-md-4">
                     <div class="inner">
                         <div class="bradcrumb-thumb">
-                            <img src="{{asset('assets/site')}}/images/product/product-45.png" alt="Image">
+                            <img src="{{asset('assets')}}/uploads/contact.gif" alt="Image">
                         </div>
                     </div>
                 </div>

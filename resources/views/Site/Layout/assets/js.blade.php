@@ -36,7 +36,65 @@
     $(window).on('load', function() {
         $('#loader-overlay').fadeOut('slow');
     });
+
+    // subscribeForm
+    $("form#subscribeForm").submit(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var url = $('#subscribeForm').attr('action');
+        $.ajax({
+            url:url,
+            type: 'POST',
+            data: formData,
+            beforeSend: function(){
+                $('#sendBtn').html('<span style="margin-right: 4px;color: white"> انتظر.. </span><span class="spinner-border spinner-border-sm text-light" ' + ' ></span>');
+            },
+            complete: function(){
+
+
+            },
+            success: function (data) {
+                if (data.status == 200){
+                    toastr.success('تم الاشتراك بنجاح, سنرسل لك احدث العروض والاخبار ❤️');
+                    $('#subscribeForm')[0].reset();
+                    $('#sendBtn').html("اشتراك").attr('disabled', false);
+                }
+                else if (data.status == 405) {
+                    toastr.warning('لقد قمت بالتسجيل مسبقا, سنرسل لك احدث العروض والاخبار ❤️');
+                    $('#subscribeForm')[0].reset();
+                    $('#sendBtn').html("اشتراك").attr('disabled', false);
+                }
+                else {
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                }
+            },
+            error: function (data) {
+                if (data.status == 500) {
+                    $('#sendBtn').html("اشتراك").attr('disabled', false);
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                }
+                else if (data.status == 422) {
+                    $('#sendBtn').html("اشتراك").attr('disabled', false);
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors, function (key, value) {
+                        if ($.isPlainObject(value)) {
+                            $.each(value, function (key, value) {
+                                toastr.error(value);
+                            });
+                        }
+                    });
+                }
+            },//end error method
+
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+
 </script>
+
+
 
 
 @yield('site-js')

@@ -1,6 +1,7 @@
 <form id="updateForm" class="updateForm" method="POST" enctype="multipart/form-data" action="{{route('sliders.update',$row->id)}}">
     @csrf
     @method('PUT')
+    <div class="modal-body">
     <input type="hidden" value="{{$row->id}}" name="id">
     <div class="mb-3 h-25">
         <label class="form-label">الصورة (يفضل ان تكون بخلفية شفافة  بحجم 530px * 430px)</label>

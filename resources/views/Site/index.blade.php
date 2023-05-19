@@ -174,38 +174,38 @@
 {{--    </div>--}}
 {{--    <!-- End Categorie Area  -->--}}
 
-    <!-- Poster Countdown Area  -->
-    <div class="axil-poster-countdown">
-        <div class="container">
-            <div class="poster-countdown-wrap bg-lighter">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-6">
-                        <div class="poster-countdown-content">
-                            <div class="section-title-wrapper">
-                                <span class="title-highlighter highlighter-secondary"> <i class="fal fa-headphones-alt"></i> Don’t Miss!!</span>
-                                <h2 class="title">Enhance Your Music Experience</h2>
-                            </div>
-                            <div class="poster-countdown countdown mb--40"></div>
-                            <a href="#" class="axil-btn btn-bg-primary">Check it Out!</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="poster-countdown-thumbnail">
-                            <img src="{{asset('assets/site')}}/images/product/poster/poster-03.png" alt="Poster Product">
-                            <div class="music-singnal">
-                                <div class="item-circle circle-1"></div>
-                                <div class="item-circle circle-2"></div>
-                                <div class="item-circle circle-3"></div>
-                                <div class="item-circle circle-4"></div>
-                                <div class="item-circle circle-5"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Poster Countdown Area  -->
+{{--    <!-- Poster Countdown Area  -->--}}
+{{--    <div class="axil-poster-countdown">--}}
+{{--        <div class="container">--}}
+{{--            <div class="poster-countdown-wrap bg-lighter">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-xl-5 col-lg-6">--}}
+{{--                        <div class="poster-countdown-content">--}}
+{{--                            <div class="section-title-wrapper">--}}
+{{--                                <span class="title-highlighter highlighter-secondary"> <i class="fal fa-headphones-alt"></i> Don’t Miss!!</span>--}}
+{{--                                <h2 class="title">Enhance Your Music Experience</h2>--}}
+{{--                            </div>--}}
+{{--                            <div class="poster-countdown countdown mb--40"></div>--}}
+{{--                            <a href="#" class="axil-btn btn-bg-primary">Check it Out!</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-xl-7 col-lg-6">--}}
+{{--                        <div class="poster-countdown-thumbnail">--}}
+{{--                            <img src="{{asset('assets/site')}}/images/product/poster/poster-03.png" alt="Poster Product">--}}
+{{--                            <div class="music-singnal">--}}
+{{--                                <div class="item-circle circle-1"></div>--}}
+{{--                                <div class="item-circle circle-2"></div>--}}
+{{--                                <div class="item-circle circle-3"></div>--}}
+{{--                                <div class="item-circle circle-4"></div>--}}
+{{--                                <div class="item-circle circle-5"></div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <!-- End Poster Countdown Area  -->--}}
 
     <!-- Start Expolre Product Area  -->
     <div class="axil-product-area bg-color-white axil-section-gap">
@@ -748,58 +748,7 @@
     @endif
 
 
-    <!-- Start Why Choose Area  -->
-    <div class="axil-why-choose-area pb--50 pb_sm--30">
-        <div class="container">
-            <div class="section-title-wrapper section-title-center">
-                <span class="title-highlighter highlighter-secondary"><i class="fal fa-thumbs-up"></i>لماذا نحن ؟</span>
-                <h2 class="title">هتلاقي معانا كل المميزات دي</h2>
-            </div>
-            <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 row--20">
-                <div class="col">
-                    <div class="service-box">
-                        <div class="icon">
-                            <img src="{{asset('assets/site')}}/images/icons/service6.png" alt="Service">
-                        </div>
-                        <h6 class="title"> عروض كبيرة و هدايا كتير </h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-box">
-                        <div class="icon">
-                            <img src="{{asset('assets/site')}}/images/icons/service7.png" alt="Service">
-                        </div>
-                        <h6 class="title">ضمان 100% من جودة المنتجات</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-box">
-                        <div class="icon">
-                            <img src="{{asset('assets/site')}}/images/icons/service8.png" alt="Service">
-                        </div>
-                        <h6 class="title">سياسة استرجاع واضحة</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-box">
-                        <div class="icon">
-                            <img src="{{asset('assets/site')}}/images/icons/service9.png" alt="Service">
-                        </div>
-                        <h6 class="title">معاينة كاملة للمنتج قبل الاستلام</h6>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="service-box">
-                        <div class="icon">
-                            <img src="{{asset('assets/site')}}/images/icons/service10.png" alt="Service">
-                        </div>
-                        <h6 class="title">دعم فني 24 ساعة للشكاوي</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Why Choose Area  -->
+    @include('Site.Layout.Sections.why-us')
 
 
     <!-- Start Axil Product Poster Area  -->
@@ -841,84 +790,10 @@
     </div>
     <!-- End Axil Product Poster Area  -->
 
-    <!-- Start Axil Newsletter Area  -->
-    <div class="axil-newsletter-area axil-section-gap pt--0">
-        <div class="container">
-            <div class="etrade-newsletter-wrapper bg_image bg_image--5">
-                <div class="newsletter-content">
-                    <span class="title-highlighter highlighter-primary2"><i class="fas fa-envelope-open"></i>اخبارنا</span>
-                    <h2 class="title mb--40 mb_sm--30">اطلع علي كل ما هو جديد</h2>
-                    <div class="input-group newsletter-form">
-                        <form id="subscribeForm" method="POST" action="{{route('postSubscribe')}}">
-                            @csrf
-                            <div class="position-relative newsletter-inner mb--15">
-                                <input name="email" placeholder="example@gmail.com" type="email">
-                            </div>
-                            <button type="submit" id="sendBtn" class="axil-btn mb--15">اشتراك</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End .container -->
-    </div>
-    <!-- End Axil Newsletter Area  -->
+    @include('Site.Layout.Sections.subscribe')
+
 
 @endsection
 @section('site-js')
-    <script>
-        $("form#subscribeForm").submit(function(e) {
-            e.preventDefault();
-            var formData = new FormData(this);
-            var url = $('#subscribeForm').attr('action');
-            $.ajax({
-                url:url,
-                type: 'POST',
-                data: formData,
-                beforeSend: function(){
-                    $('#sendBtn').html('<span style="margin-right: 4px;color: white"> انتظر.. </span><span class="spinner-border spinner-border-sm text-light" ' + ' ></span>');
-                },
-                complete: function(){
 
-
-                },
-                success: function (data) {
-                    if (data.status == 200){
-                        toastr.success('تم الاشتراك بنجاح, سنرسل لك احدث العروض والاخبار ❤️');
-                        $('#subscribeForm')[0].reset();
-                        $('#sendBtn').html("اشتراك").attr('disabled', false);
-                    }
-                    else if (data.status == 405) {
-                        toastr.warning('لقد قمت بالتسجيل مسبقا, سنرسل لك احدث العروض والاخبار ❤️');
-                        $('#subscribeForm')[0].reset();
-                        $('#sendBtn').html("اشتراك").attr('disabled', false);
-                    }
-                    else {
-                        toastr.error('عذرا هناك خطأ فني 😞');
-                    }
-                },
-                error: function (data) {
-                    if (data.status == 500) {
-                        $('#sendBtn').html("اشتراك").attr('disabled', false);
-                        toastr.error('عذرا هناك خطأ فني 😞');
-                    }
-                    else if (data.status == 422) {
-                        $('#sendBtn').html("اشتراك").attr('disabled', false);
-                        var errors = $.parseJSON(data.responseText);
-                        $.each(errors, function (key, value) {
-                            if ($.isPlainObject(value)) {
-                                $.each(value, function (key, value) {
-                                    toastr.error(value);
-                                });
-                            }
-                        });
-                    }
-                },//end error method
-
-                cache: false,
-                contentType: false,
-                processData: false
-            });
-        });
-    </script>
 @endsection

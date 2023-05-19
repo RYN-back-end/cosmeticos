@@ -51,9 +51,27 @@
                 </li>
 
                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bxs-news"></i>
+                        <span key="t-dashboards">المدونة والمقالات</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('blogs.index')}}" key="t-blogs"> عرض الكل</a></li>
+                        <li><a href="{{route('blogs.create')}}" class="create-model" key="t-blogs"> اضافة جديد</a></li>
+                    </ul>
+                </li>
+
+                <li>
                     <a href="{{route('contacts.index')}}" class="waves-effect">
                         <i class="bx bx-message"></i>
                         <span key="t-Contacts">طلبات التواصل</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('setting.index')}}" class="waves-effect">
+                        <i class="bx bx-cog"></i>
+                        <span key="t-Setting">الاعدادات</span>
                     </a>
                 </li>
 
