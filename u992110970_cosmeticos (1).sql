@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 12, 2023 at 05:09 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: 127.0.0.1:3306
+-- Generation Time: May 19, 2023 at 12:29 PM
+-- Server version: 10.5.19-MariaDB-cll-lve
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cosmetics`
+-- Database: `u992110970_cosmeticos`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,31 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `image`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'احمد مسعد', NULL, 'admin@admin.com', '$2y$10$fFm91rpfgyt.bSXBw28s6u1Qi2sFv5cHNGtE1fVYSXeiBrVYkCOc2', '2023-04-03 02:00:10', '2023-04-03 02:00:10');
+(1, 'احمد مسعد', 'assets/uploads/admins/63521684434643.webp', 'admin@admin.com', '$2y$10$fFm91rpfgyt.bSXBw28s6u1Qi2sFv5cHNGtE1fVYSXeiBrVYkCOc2', '2023-04-03 02:00:10', '2023-05-18 20:30:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` text DEFAULT NULL,
+  `desc` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `admin_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `title`, `desc`, `image`, `admin_id`, `created_at`, `updated_at`) VALUES
+(1, 'Nisi debitis ut enim', '<p>asd sad asda sd asdsad</p>', 'assets/uploads/blogs/17181684417586.webp', 1, '2023-05-18 10:46:26', '2023-05-18 10:46:26'),
+(3, 'شاي المزاج', '<p>شاي المزاج&nbsp;&nbsp;شاي المزاج&nbsp;&nbsp;شاي المزاج&nbsp;&nbsp;شاي المزاج&nbsp;&nbsp;شاي المزاج&nbsp;&nbsp;<strong><em><s>شاي المزاج&nbsp;&nbsp;شاي</s></em></strong> المزاج&nbsp;&nbsp;شاي المزاج&nbsp;&nbsp;شاي المزاج&nbsp;</p>', 'assets/uploads/blogs/48301684418641.webp', 1, '2023-05-18 11:04:01', '2023-05-18 11:04:01');
 
 -- --------------------------------------------------------
 
@@ -114,7 +138,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2023_05_04_011416_create_products_table', 4),
 (21, '2023_05_09_184751_create_reviews_table', 5),
 (22, '2023_05_10_171809_create_contact_us_table', 6),
-(23, '2023_05_11_234250_create_sliders_table', 7);
+(23, '2023_05_11_234250_create_sliders_table', 7),
+(24, '2023_05_18_113742_create_blogs_table', 8),
+(25, '2023_05_18_183022_create_settings_table', 9);
 
 -- --------------------------------------------------------
 
@@ -172,11 +198,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `image`, `title`, `desc`, `price_before`, `price_after`, `reviews_num`, `stars`, `created_at`, `updated_at`) VALUES
 (1, 'assets/uploads/products/71231683201585.webp', 'مستحضر تجميلي', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '472.00', '64.00', 83, '2', '2023-05-04 08:59:45', '2023-05-04 08:59:45'),
-(2, 'assets/uploads/products/16271683202038.webp', 'صباع روج', 'إنه لأمر مدهش مدى سهولة التعرف على أشخاص جدد وإنشاء علاقات بدون اتصالات على الفور. لدي نفس الشخصية بالضبط الشيء الوحيد الذي تغير هو طريقة تفكيري وبعض السلوكيات.\n', '120.00', '87.00', 0, '3', '2023-05-04 09:07:18', '2023-05-04 09:07:18'),
-(6, 'assets/uploads/products/48331683754937.webp', 'منتج تفتيح وجه', 'منتج تفتيح وجه باحدث المواد منتج تفتيح وجه باحدث المواد  منتج تفتيح وجه باحدث المواد', '75.00', '50.00', 12, '5', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
-(7, 'assets/uploads/products/71301683755015.webp', 'منتج تجريبي', 'منتج تجريبي منتج تجريبي منتج تجريبي منتج تجريبي منتج تجريبي', '250.00', '0.00', 33, '5', '2023-05-10 21:43:35', '2023-05-10 21:43:35'),
-(8, 'assets/uploads/products/38041683804968.webp', 'صباع روج', 'Voluptas aliqua Sim', '860.00', '506.00', 94, '3', '2023-05-11 11:36:08', '2023-05-11 11:36:08'),
-(9, 'assets/uploads/products/81681683815435.webp', 'اسم منتجح', 'وصصصصصصصصصصف', '300.00', '0.00', 12, '4', '2023-05-11 11:30:36', '2023-05-11 11:30:36');
+(10, 'assets/uploads/products/41861684498137.webp', 'سبراي مضاد للقشرة', 'بخاخ علاجي مبتكر لعلاج قشرة الرأس والعدوى الفطرية بالجلد\r\nقوة مزدوجة للقضاء على الفطريات المسببة للقشرة\r\nالمنتج الوحيد المعزز والغني بالكيوي لتغذية الشعر وترطيبه\r\nلا يسبب اي جفاف للشعر\r\nيقلل تساقط الشعر المصاحب للقشرة\r\nيقلل من الالتهابات ومن حكة فروة الرأس\r\nينظم الافرازات الدهنية للحصول على المظهر المثالي', '50.00', '0.00', 25, '5', '2023-05-19 14:08:57', '2023-05-19 14:08:57');
 
 -- --------------------------------------------------------
 
@@ -191,17 +213,6 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `product_images`
---
-
-INSERT INTO `product_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
-(13, 6, 'assets/uploads/products/95381683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
-(14, 6, 'assets/uploads/products/74281683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
-(15, 6, 'assets/uploads/products/26471683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
-(16, 6, 'assets/uploads/products/51451683754937.webp', '2023-05-10 21:42:17', '2023-05-10 21:42:17'),
-(21, 8, 'assets/uploads/products/17631683804968.webp', '2023-05-11 11:36:08', '2023-05-11 11:36:08');
 
 -- --------------------------------------------------------
 
@@ -220,17 +231,28 @@ CREATE TABLE `reviews` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `reviews`
+-- Table structure for table `settings`
 --
 
-INSERT INTO `reviews` (`id`, `product_id`, `image`, `name`, `desc`, `stars`, `created_at`, `updated_at`) VALUES
-(19, 6, 'assets/uploads/reviews/81061683755080.webp', 'احمد طارق', 'المنتج رائع المنتج رائع  المنتج رائع  المنتج رائع  المنتج رائع  المنتج رائع  المنتج رائع', '5', '2023-05-10 21:44:40', '2023-05-10 21:44:40'),
-(20, 6, 'assets/uploads/reviews/70961683755163.webp', 'شاهر اسماعيل', 'نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل', '5', '2023-05-10 21:46:03', '2023-05-10 21:46:03'),
-(21, 7, 'assets/uploads/reviews/36701683755381.webp', 'زياد نظم', 'نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل', '4', '2023-05-10 21:49:41', '2023-05-10 21:49:41'),
-(22, 2, 'assets/uploads/reviews/96051683755467.webp', 'مسعد افراد', 'نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل نقدم النصائح الطبية لجعل حياتك أفضل', '3', '2023-05-10 21:51:07', '2023-05-10 21:51:07'),
-(24, 9, NULL, 'Kay Nash', 'Laborum Quae optio', '5', '2023-05-11 11:32:35', '2023-05-11 11:32:35'),
-(25, 9, NULL, 'Dahlia Herman', 'Sequi labore volupta', '3', '2023-05-11 11:32:49', '2023-05-11 11:32:49');
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `about` text DEFAULT NULL,
+  `about_image` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `title`, `logo`, `about`, `about_image`, `created_at`, `updated_at`) VALUES
+(1, 'Aya\'s Cosmetics', 'assets/uploads/78701684496183.webp', '<p>&nbsp;تستخدم للعناية بالبشرة والشعر والجسم. يمكن أن يكون المتجر جزءًا من سلسلة متاجر أو مستقلاً، ويتميز بتوفير مجموعة واسعة من المنتجات التي تتناسب مع احتياجات العملاء المختلفة.</p>\r\n\r\n<p>يتضمن متجر مستحضرات التجميل عادةً مجموعة متنوعة من المنتجات، مثل الكريمات والزيوت والماسكات والأمبولات والشامبو والبلسم والصابون ومنتجات الاستحمام وغيرها. وتتوفر هذه المنتجات عادة في عدة أحجام وأنواع وتركيبات مختلفة لتناسب احتياجات العملاء المختلفة.</p>\r\n\r\n<p>يمكن أن يشمل متجر مستحضرات التجميل أيضًا خدمات إضافية مثل الاستشارة الشخصية لاختيار المنتجات المناسبة، وعروض خاصة وتخفيضات على المنتجات، وعروض تجريبية للمنتجات الجديدة</p>', 'assets/uploads/6821684429204.webp', '2023-05-18 15:40:14', '2023-05-19 13:36:24');
 
 -- --------------------------------------------------------
 
@@ -252,9 +274,9 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `sub_title`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'اعتني بنضارة بشرتك وجمالك الان', 'افضل عروض الترويجية', 'assets/uploads/sliders/13451683851549.webp', '2023-05-11 21:20:51', '2023-05-11 21:32:29'),
-(2, 'معنا احدث المنتجات وافضلهم', 'اسال عن عرض التوفير', 'assets/uploads/sliders/22941683852062.webp', '2023-05-11 21:41:04', '2023-05-11 21:41:04'),
-(3, 'Porro ipsam consequu', 'Dolore ullam ut prov', 'assets/uploads/sliders/87301683852260.webp', '2023-05-11 21:44:20', '2023-05-11 21:44:20');
+(1, 'نصائح مستمرة وقيمة للعناية بالبشرة', 'فريق طبي متكامل', 'assets/uploads/sliders/94191684497025.webp', '2023-05-11 21:20:51', '2023-05-19 13:50:26'),
+(4, 'عروض حصرية ومستمرة دايما', 'تابعوا عروضنا', 'assets/uploads/sliders/97211684497416.webp', '2023-05-19 13:56:56', '2023-05-19 13:56:56'),
+(5, 'منتجات بأفضل جودة', 'استكشفي منتجاتنا', 'assets/uploads/sliders/55551684497891.webp', '2023-05-19 14:04:51', '2023-05-19 14:04:51');
 
 -- --------------------------------------------------------
 
@@ -283,6 +305,13 @@ CREATE TABLE `users` (
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `blogs_admin_id_foreign` (`admin_id`);
 
 --
 -- Indexes for table `contact_us`
@@ -338,6 +367,12 @@ ALTER TABLE `reviews`
   ADD KEY `reviews_product_id_foreign` (`product_id`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
@@ -361,6 +396,12 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
@@ -376,7 +417,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -388,7 +429,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product_images`
@@ -403,10 +444,16 @@ ALTER TABLE `reviews`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -417,6 +464,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD CONSTRAINT `blogs_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product_images`

@@ -13,7 +13,7 @@
                                     <h1 class="title">{{$slider->title}}</h1>
                                     <div class="slide-action">
                                         <div class="shop-btn">
-                                            <a href="#" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
+                                            <a href="{{route('productPage')}}" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
                                         </div>
                                     </div>
                                 </div>
