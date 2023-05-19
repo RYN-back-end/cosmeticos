@@ -163,7 +163,7 @@
     </div>
     <!-- End Shop Area  -->
 
-    @if($product->reviews)
+    @if($product->reviews->count())
         <div class="woocommerce-tabs wc-tabs-wrapper bg-vista-white">
             <div class="container">
                 <div class="reviews-wrapper">

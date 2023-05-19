@@ -1,46 +1,78 @@
 @extends('Site.Layout.app')
 @section('content')
-    @if($sliders->count())
-    <div class="axil-main-slider-area main-slider-style-1">
+        @if($sliders->count())
+    <!-- Start Slider Area -->
+    <div class="axil-main-slider-area main-slider-style-2 main-slider-style-8">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 col-sm-6">
-                    <div class="main-slider-content">
-                        <div class="slider-content-activation-one">
-                            @foreach($sliders as $slider)
-                                <div class="single-slide slick-slide" {{($loop->first) ? 'data-sal="slide-up" data-sal-delay="400" data-sal-duration="800"' : ''}}>
-                                    <span class="subtitle"><i class="fas fa-fire"></i>{{$slider->sub_title}}</span>
-                                    <h1 class="title">{{$slider->title}}</h1>
-                                    <div class="slide-action">
+            <div class="slider">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="slider-box-wrap">
+                            <div class="slider-activation-one axil-slick-dots">
+                                @foreach($sliders as $slider)
+                                <div class="single-slide slick-slide">
+                                    <div class="main-slider-content">
+                                        <span class="subtitle"><i class="fal fa-badge-percent"></i>{{$slider->sub_title}}</span>
+                                        <h1 class="title">{{$slider->title}}</h1>
                                         <div class="shop-btn">
-                                            <a href="{{route('productPage')}}" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
+                                            <a href="{{route('productPage')}}" class="axil-btn"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>
                                         </div>
                                     </div>
+                                    <div class="main-slider-thumb">
+                                        <img src="{{getFile($slider->image)}}" alt="Product">
+                                    </div>
                                 </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-sm-6">
-                    <div class="main-slider-large-thumb">
-                        <div class="slider-thumb-activation-one axil-slick-dots mt--20">
-                            @foreach($sliders as $slider)
-                            <div class="single-slide slick-slide" {{($loop->first || $loop->iteration == 2) ? 'data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500"' : ''}}>
-                                <img src="{{getFile($slider->image)}}" alt="Product">
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <ul class="shape-group">
-            <li class="shape-1"><img src="{{asset('assets/site')}}/images/others/shape-1.png" alt="Shape"></li>
-            <li class="shape-2"><img src="{{asset('assets/site')}}/images/others/shape-2.png" alt="Shape"></li>
-        </ul>
     </div>
-    @endif
+        @endif
+    <!-- End Slider Area -->
+{{--    @if($sliders->count())--}}
+{{--    <div class="axil-main-slider-area main-slider-style-1">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row align-items-center">--}}
+{{--                <div class="col-lg-5 col-sm-6">--}}
+{{--                    <div class="main-slider-content">--}}
+{{--                        <div class="slider-content-activation-one">--}}
+{{--                            @foreach($sliders as $slider)--}}
+{{--                                <div class="single-slide slick-slide" {{($loop->first) ? 'data-sal="slide-up" data-sal-delay="400" data-sal-duration="800"' : ''}}>--}}
+{{--                                    <span class="subtitle"><i class="fas fa-fire"></i>{{$slider->sub_title}}</span>--}}
+{{--                                    <h1 class="title">{{$slider->title}}</h1>--}}
+{{--                                    <div class="slide-action">--}}
+{{--                                        <div class="shop-btn">--}}
+{{--                                            <a href="{{route('productPage')}}" class="axil-btn btn-bg-white"><i class="fal fa-shopping-cart"></i>عرض المنتجات</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-7 col-sm-6">--}}
+{{--                    <div class="main-slider-large-thumb">--}}
+{{--                        <div class="slider-thumb-activation-one axil-slick-dots mt--20">--}}
+{{--                            @foreach($sliders as $slider)--}}
+{{--                            <div class="single-slide slick-slide" {{($loop->first || $loop->iteration == 2) ? 'data-sal="slide-up" data-sal-delay="600" data-sal-duration="1500"' : ''}}>--}}
+{{--                                <img src="{{getFile($slider->image)}}" alt="Product">--}}
+{{--                            </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <ul class="shape-group">--}}
+{{--            <li class="shape-1"><img src="{{asset('assets/site')}}/images/others/shape-1.png" alt="Shape"></li>--}}
+{{--            <li class="shape-2"><img src="{{asset('assets/site')}}/images/others/shape-2.png" alt="Shape"></li>--}}
+{{--        </ul>--}}
+{{--    </div>--}}
+{{--    @endif--}}
 
 {{--    <!-- Start Categorie Area  -->--}}
 {{--    <div class="axil-categorie-area bg-color-white axil-section-gapcommon">--}}
