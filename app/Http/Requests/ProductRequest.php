@@ -32,6 +32,7 @@ class ProductRequest extends FormRequest
                 'price_after'  => 'nullable|numeric',
                 'reviews_num'  => 'nullable|numeric|integer',
                 'stars'        => 'required|in:1,2,3,4,5',
+                'category_id'  => 'required|exists:categories,id',
             ];
         }
         else{
@@ -43,6 +44,7 @@ class ProductRequest extends FormRequest
                 'price_after'  => 'nullable|numeric',
                 'reviews_num'  => 'nullable|numeric|integer',
                 'stars'        => 'required|in:1,2,3,4,5',
+                'category_id'  => 'required|exists:categories,id',
             ];
         }
     }

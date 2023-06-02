@@ -130,10 +130,10 @@
                                 <div class="post-details__social-share">
                                     <span class="share-on-text">تواصل</span>
                                     <div class="social-share">
-                                        <a href="https:www.facebook.com/AyasCosmetic"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="mailto:ahmed.mosaad2018@gmail.com"><i class="fab fa-google"></i></a>
-                                        <a href="tel:+201016165385"><i class="fal fa-phone-alt"></i></a>
-                                        <a href="sms:+201016165385?&body=مستخدم من الموقع'"><i class="fal fa-comment"></i></a>
+                                        <a href="{{$setting->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="mailto:{{$setting->gmail}}"><i class="fab fa-google"></i></a>
+                                        <a href="tel:{{$setting->phone}}"><i class="fal fa-phone-alt"></i></a>
+                                        <a href="sms:{{$setting->phone}}?&body=مستخدم من الموقع'"><i class="fal fa-comment"></i></a>
                                     </div>
 
                                 </div>

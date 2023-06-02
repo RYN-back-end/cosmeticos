@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
@@ -40,6 +42,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     #### Blogs ####
     Route::resource('blogs', BlogController::class);
+
+    #### categories ####
+    Route::resource('categories', CategoryController::class);
+
+
+    #### categories ####
+    Route::resource('brands', BrandController::class);
 
 
     #### Setting ####

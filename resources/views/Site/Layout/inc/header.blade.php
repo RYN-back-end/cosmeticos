@@ -2,7 +2,7 @@
     <div class="header-top-campaign">
         <div class="container position-relative">
             <div class="campaign-content">
-                <p>شحن مجاني للمنتجات فوق 350 ج.م <a href="{{route('productPage')}}">عرض المنتجات</a></p>
+                <p>{{$setting->desc}}</p>
             </div>
         </div>
         <button class="remove-campaign"><i class="fal fa-times"></i></button>

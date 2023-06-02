@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('title',255)->nullable();
             $table->string('logo',255)->nullable();
+            $table->string('phone',255)->nullable();
+            $table->string('whatsapp',255)->nullable();
+            $table->string('gmail',255)->nullable();
+            $table->string('facebook',255)->nullable();
+            $table->enum('order_type',['whatsapp','site'])->default('whatsapp');
             $table->text('about')->nullable();
             $table->text('about_image')->nullable();
             $table->timestamps();

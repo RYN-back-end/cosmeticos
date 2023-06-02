@@ -30,17 +30,6 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-shopping-bag"></i>
-                        <span key="t-dashboards">المنتجات</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('products.index')}}" key="t-products"> قائمة المنتجات</a></li>
-                        <li><a href="{{route('products.create')}}" class="create-model" key="t-product"> اضافة منتج</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-images"></i>
                         <span key="t-dashboards">البانر المتحرك</span>
                     </a>
@@ -52,12 +41,47 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-menu"></i>
+                        <span key="t-categories">الاقسام</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('categories.index')}}" key="t-categories"> اقسام المنتجات</a></li>
+                        <li><a href="{{route('categories.create')}}" class="create-model" key="t-categories"> اضافة قسم</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span key="t-dashboards">المنتجات</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('products.index')}}" key="t-products"> قائمة المنتجات</a></li>
+                        <li><a href="{{route('products.create')}}" class="create-model" key="t-product"> اضافة منتج</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bxs-news"></i>
                         <span key="t-dashboards">المدونة والمقالات</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('blogs.index')}}" key="t-blogs"> عرض الكل</a></li>
                         <li><a href="{{route('blogs.create')}}" class="create-model" key="t-blogs"> اضافة جديد</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fab fa-apple"></i>
+                        <span key="t-dashboards">البراندات</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('brands.index')}}" key="t-brands"> براندات الموقع</a></li>
+                        <li><a href="{{route('brands.create')}}" class="create-model" key="t-brands"> اضافة براند</a></li>
                     </ul>
                 </li>
 

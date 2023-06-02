@@ -14,10 +14,23 @@
             </div>
             <span class="form-text text-info text-center">مسموح فقط بالصيغ الاتية : png, gif, jpeg, jpg, webp</span>
         </div>
-        <div class="mb-3">
-            <label class="form-label">اسم المنتج</label>
-            <input type="text" name="title" class="form-control" placeholder="يرجي ادخال عنوان المنتج">
+        <div class="row">
+            <div class="mb-3 col-lg-6">
+                <label class="form-label">اسم المنتج</label>
+                <input type="text" name="title" class="form-control" placeholder="يرجي ادخال عنوان المنتج">
+            </div>
+            <div class="templating-select col-lg-6">
+                <label class="form-label">القسم</label>
+                <select class="form-control" name="category_id">
+                    <option disabled selected>--- اختار قسم المنتج ---</option>
+                @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
+            </div>
+
         </div>
+
         <div class="mb-3">
             <label class="form-label">وصف المنتج</label>
             <textarea  name="desc" class="form-control" placeholder="يرجي ادخال وصف المنتج"></textarea>
@@ -50,4 +63,5 @@
 
 <script>
     $('.dropify').dropify("Upload Here");
+    CKEDITOR.replace('desc');
 </script>

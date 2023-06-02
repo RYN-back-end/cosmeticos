@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Review;
@@ -44,6 +45,12 @@ class ProductController extends Controller
                 ->editColumn('desc', function ($row) {
                     return Str::limit($row->desc,'40');
                 })
+                ->editColumn('category_id', function ($row) {
+                    return ($row->category->title) ?? '---';
+                })
+                ->addColumn('details', function ($row) {
+                    return "<a href='".route('products.show',$row->id)."' class='text-primary' data-id='" . $row->id . "'> <i class='mdi mdi-information font-size-18'></i></a>";
+                })
                 ->editColumn('image', function ($row) {
                     return ' <img src="' . getFile($row->image) . '" class="avatar-xs rounded-circle" onclick="window.open(this.src)">';
                 })
@@ -56,8 +63,9 @@ class ProductController extends Controller
                 ->addColumn('actions', function ($row) {
                     return "
                     <div class='d-flex gap-3'>
-                    <a href='".route('products.show',$row->id)."' class='text-info' data-id='" . $row->id . "'> <i class='mdi mdi-pencil font-size-18'></i></a>
-                   <a href='javascript:void(0);' class='text-danger delete' data-id='" . $row->id . "'><i class='mdi mdi-delete font-size-18'></i> </a>
+                    <a href='".route('products.show',$row->id)."' title='التفاصيل' class='text-primary' data-id='" . $row->id . "'> <i class='mdi mdi-information font-size-18'></i></a>
+                    <a href='javascript:void(0);' class='text-info editBtn' title='تعديل' data-id='" . $row->id . "'> <i class='mdi mdi-pencil font-size-18'></i></a>
+                   <a href='javascript:void(0);' class='text-danger delete' title='حذف' data-id='" . $row->id . "'><i class='mdi mdi-delete font-size-18'></i> </a>
                    </div>
                    ";
 
@@ -71,13 +79,15 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('Admin.CRUD.Product.parts.create');
+        $categories = Category::orderBy('title','ASC')->get();
+        return view('Admin.CRUD.Product.parts.create',compact('categories'));
     }
 
     public function show($id){
         $product = Product::with(['images','reviews' => function ($query) {
             $query->latest();
         }])->findOrFail($id);
+
         return view('Admin.CRUD.Product.parts.details',compact('product'));
     }
 
@@ -128,8 +138,9 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $row = Admin::findOrFail($id);
-        return view('Admin.CRUD.Admin.parts.edit', compact('row'));
+        $row = Product::findOrFail($id);
+        $categories = Category::orderBy('title','ASC')->get();
+        return view('Admin.CRUD.Product.parts.edit', compact('row','categories'));
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SettingRequest;
 use App\Models\Setting;
 use App\Traits\UploadFiles;
 use Illuminate\Http\Request;
@@ -14,8 +15,8 @@ class SettingController extends Controller
         return view('Admin/Setting/index');
     }
 
-    public function update(request $request){
-        $input = $request->except('_token');
+    public function update(SettingRequest $request){
+        $input = $request->validated();
 
         if($request->has('logo'))
             $input['logo'] = $this->saveFile($request->logo,'assets/uploads','yes',99);

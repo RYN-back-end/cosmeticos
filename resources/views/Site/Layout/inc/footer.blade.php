@@ -14,9 +14,9 @@
                         </div> -->
                         <div class="inner">
                             <ul class="support-list-item">
-                                <li><a href="mailto:ahmed.mosaad2018@gmail.com"><i class="fal fa-envelope-open"></i> ahmed.mosaad2018@gmail.com</a></li>
-                                <li><a href="tel:+201016165385"><i class="fal fa-phone-alt"></i>(+20)1016165385</a></li>
-                                <li><a href="sms:+201016165385?&body=مستخدم من الموقع'"><i class="fal fa-comment"></i>(+20)1016165385</a></li>
+                                <li><a href="mailto:{{$setting->gmail}}"><i class="fal fa-envelope-open"></i> {{$setting->gmail}}</a></li>
+                                <li><a href="tel:{{$setting->phone}}"><i class="fal fa-phone-alt"></i>{{$setting->phone}}</a></li>
+                                <li><a href="sms:{{$setting->phone}}?&body=مستخدم من الموقع'"><i class="fal fa-comment"></i>{{$setting->phone}}</a></li>
                                 <!-- <li><i class="fal fa-map-marker-alt"></i> 685 Market Street,  <br> Las Vegas, LA 95820, <br> United States.</li> -->
                             </ul>
                         </div>
@@ -70,10 +70,10 @@
             <div class="row align-items-center">
                 <div class="col-xl-4">
                     <div class="social-share">
-                        <a href="https:www.facebook.com/AyasCosmetic"><i class="fab fa-facebook-f"></i></a>
-                        <a href="mailto:ahmed.mosaad2018@gmail.com"><i class="fab fa-google"></i></a>
-                        <a href="tel:+201016165385"><i class="fal fa-phone-alt"></i></a>
-                        <a href="sms:+201016165385?&body=مستخدم من الموقع'"><i class="fal fa-comment"></i></a>
+                        <a href="{{$setting->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:{{$setting->gmail}}"><i class="fab fa-google"></i></a>
+                        <a href="tel:{{$setting->phone}}"><i class="fal fa-phone-alt"></i></a>
+                        <a href="sms:{{$setting->phone}}?&body=مستخدم من الموقع'"><i class="fal fa-comment"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-12">

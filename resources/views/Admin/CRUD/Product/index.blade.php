@@ -6,7 +6,6 @@
     المنتجات
 @endsection
 @section('content')
-
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -35,9 +34,11 @@
                             <th>كود</th>
                             <th>الصورة</th>
                             <th>العنوان</th>
+                            <th>القسم</th>
                             <th>الوصف</th>
                             <th>التقييم</th>
                             <th>السعر</th>
+{{--                            <th>التفاصيل</th>--}}
                             <th>العمليات</th>
                         </tr>
                         </thead>
@@ -67,15 +68,18 @@
 
 @endsection
 @section('dashboard-js')
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
     <script>
         // Show Data Using YAJRA
         var columns = [
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
             {data: 'title', name: 'title'},
+            {data: 'category_id', name: 'category_id'},
             {data: 'desc', name: 'desc'},
             {data: 'stars', name: 'stars'},
             {data: 'price', name: 'price'},
+            // {data: 'details', name: 'details'},
             {data: 'actions', name: 'actions'},
         ];
     </script>

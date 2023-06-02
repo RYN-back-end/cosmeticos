@@ -34,7 +34,7 @@
     });
 
     $(window).on('load', function() {
-        $('#loader-overlay').fadeOut('slow');
+        $(".loader-container").fadeOut("slow");
     });
 
     // subscribeForm

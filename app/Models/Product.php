@@ -10,11 +10,16 @@ class Product extends Model
     use HasFactory;
     protected $guarded = [];
 
+    // relations
     public function images(){
         return $this->hasMany(ProductImage::class,'product_id');
     }
 
     public function reviews(){
         return $this->hasMany(Review::class,'product_id');
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class,'category_id');
     }
 }

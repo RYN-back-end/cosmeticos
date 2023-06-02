@@ -98,7 +98,7 @@
 {{--                                    <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>--}}
 {{--                                </ul>--}}
                                 <p class="description">
-                                    {{$product->desc}}
+                                    {!! $product->desc !!}
                                 </p>
 
                                 <div class="product-variations-wrapper">
