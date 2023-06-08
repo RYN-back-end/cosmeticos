@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 02:40 PM
+-- Generation Time: Jun 08, 2023 at 07:32 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -95,6 +95,29 @@ INSERT INTO `brands` (`id`, `title`, `image`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(7, 14, 1, '2023-06-08 14:53:32', '2023-06-08 14:53:32'),
+(8, 13, 1, '2023-06-08 14:53:40', '2023-06-08 14:53:40'),
+(9, 12, 1, '2023-06-08 14:53:43', '2023-06-08 14:53:43');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -142,7 +165,8 @@ INSERT INTO `contact_us` (`id`, `name`, `email`, `phone`, `subject`, `message`, 
 (7, 'Fulton Wilder', 'gywewirib@mailinator.com', '+1 (548) 294-1825', 'Nesciunt natus nesc', 'Quis consectetur am', '2023-05-10 21:36:20', '2023-05-10 21:36:20'),
 (8, NULL, 'rynprogrammer@gmail.com', NULL, NULL, NULL, '2023-05-11 11:29:04', '2023-05-11 11:29:04'),
 (9, NULL, 'ahmedtarekya100@gmail.com', NULL, NULL, NULL, '2023-05-12 00:05:14', '2023-05-12 00:05:14'),
-(10, NULL, 'admin@admin.com', NULL, NULL, NULL, '2023-05-12 00:07:58', '2023-05-12 00:07:58');
+(10, NULL, 'admin@admin.com', NULL, NULL, NULL, '2023-05-12 00:07:58', '2023-05-12 00:07:58'),
+(11, NULL, 'ahmed@gmail.com', NULL, NULL, NULL, '2023-06-08 14:12:11', '2023-06-08 14:12:11');
 
 -- --------------------------------------------------------
 
@@ -177,7 +201,6 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(11, '2014_10_12_000000_create_users_table', 1),
 (12, '2014_10_12_100000_create_password_resets_table', 1),
 (13, '2019_08_19_000000_create_failed_jobs_table', 1),
 (14, '2019_12_14_000001_create_personal_access_tokens_table', 1),
@@ -190,7 +213,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2023_05_18_113742_create_blogs_table', 8),
 (25, '2023_05_18_183022_create_settings_table', 9),
 (26, '2023_06_01_221255_create_categories_table', 10),
-(27, '2023_06_02_141640_create_brands_table', 11);
+(27, '2023_06_02_141640_create_brands_table', 11),
+(28, '2023_06_07_202633_create_users_table', 12),
+(29, '2023_06_08_153141_create_carts_table', 13);
 
 -- --------------------------------------------------------
 
@@ -380,14 +405,22 @@ INSERT INTO `sliders` (`id`, `title`, `sub_title`, `image`, `created_at`, `updat
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `address` text DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `image`, `name`, `email`, `password`, `address`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'assets/uploads/users/54601686176252.webp', 'احمد طارق عباس يحيي', 'ahmedtarekya100@gmail.com', '$2y$10$VFfdLY1jHZaBnLHhbOkWxeYsTXQIBi04Ie3OYO/ydGHzDv5KThSXW', 'المنوفية شبين الكوم البتانون امام مول الحاج عبودة العشماوي مباشرة شقة 212', NULL, '2023-06-07 21:17:33', '2023-06-07 21:17:33');
 
 --
 -- Indexes for dumped tables
@@ -412,6 +445,14 @@ ALTER TABLE `blogs`
 --
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `carts_product_id_foreign` (`product_id`),
+  ADD KEY `carts_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `categories`
@@ -515,6 +556,12 @@ ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -524,7 +571,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -536,7 +583,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -578,7 +625,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -589,6 +636,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `blogs`
   ADD CONSTRAINT `blogs_admin_id_foreign` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `carts`
+--
+ALTER TABLE `carts`
+  ADD CONSTRAINT `carts_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `carts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`

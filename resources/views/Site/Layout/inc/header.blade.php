@@ -42,48 +42,83 @@
                 </div>
                 <div class="header-action">
                     <ul class="action-list">
-{{--                        <li class="axil-search">--}}
-{{--                            <a href="javascript:void(0)" class="header-search-icon" title="Search">--}}
-{{--                                <i class="flaticon-magnifying-glass"></i>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="wishlist">--}}
-{{--                            <a href="wishlist.html">--}}
-{{--                                <i class="flaticon-heart"></i>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="shopping-cart">--}}
-{{--                            <a href="#" class="cart-dropdown-btn">--}}
-{{--                                <span class="cart-count">3</span>--}}
-{{--                                <i class="flaticon-shopping-cart"></i>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="my-account">--}}
-{{--                            <a href="javascript:void(0)">--}}
-{{--                                <i class="flaticon-person"></i>--}}
-{{--                            </a>--}}
-{{--                            <div class="my-account-dropdown">--}}
-{{--                                <span class="title">QUICKLINKS</span>--}}
-{{--                                <ul>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="my-account.html">My Account</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Initiate return</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Support</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="#">Language</a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                                <div class="login-btn">--}}
-{{--                                    <a href="sign-in.html" class="axil-btn btn-bg-primary">Login</a>--}}
-{{--                                </div>--}}
-{{--                                <div class="reg-footer text-center">No account yet? <a href="sign-up.html" class="btn-link">REGISTER HERE.</a></div>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
+                        {{--                        <li class="axil-search">--}}
+                        {{--                            <a href="javascript:void(0)" class="header-search-icon" title="Search">--}}
+                        {{--                                <i class="flaticon-magnifying-glass"></i>--}}
+                        {{--                            </a>--}}
+                        {{--                        </li>--}}
+                        {{--                        <li class="wishlist">--}}
+                        {{--                            <a href="wishlist.html">--}}
+                        {{--                                <i class="flaticon-heart"></i>--}}
+                        {{--                            </a>--}}
+                        {{--                        </li>--}}
+                        {{--                        <li class="shopping-cart">--}}
+                        {{--                            <a href="#" class="cart-dropdown-btn">--}}
+                        {{--                                <span class="cart-count">3</span>--}}
+                        {{--                                <i class="flaticon-shopping-cart"></i>--}}
+                        {{--                            </a>--}}
+                        {{--                        </li>--}}
+                        <li class="wishlist">
+                            <a href="wishlist.html" class="makeLogin">
+                                <i class="flaticon-heart"></i>
+                            </a>
+                        </li>
+                        <li class="shopping-cart">
+                            <a href="#" class="cart-dropdown-btn makeLogin" id="cartIcon">
+                                @if (auth('user')->check())
+                                        <?php $count = \App\Models\Cart::where('user_id', loggedUser('id'))->count() ?>
+                                    @if($count)
+                                        <span class="cart-count">{{$count}}</span>
+                                    @endif
+                                @endif
+                                <i class="flaticon-shopping-cart"></i>
+                            </a>
+                        </li>
+                        <li class="my-account">
+                            @if (auth('user')->check())
+                                <a href="javascript:void(0)">
+                                    <img class="image-profile-nav" src="{{getUserImage(auth('user')->user()->image)}}"
+                                         alt="{{auth('user')->user()->name}}">
+                                    {{--                                    <span class="name-profile-nav"--}}
+                                    {{--                                          style="color: black !important;">{{auth('user')->user()->name}}</span>--}}
+                                </a>
+                                <div class="my-account-dropdown">
+                                    <span class="title">{{auth('user')->user()->name}}</span>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                الاشعارات
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('profile')}}">
+                                                بيانات حسابي
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('logout')}}" class="text-danger">
+                                                تسجيل الخروج <i class="fa fa-sign-out-alt"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @else
+                                <a href="javascript:void(0)" class="makeLogin">
+                                    <i class="flaticon-person"></i>
+                                </a>
+                                <div class="my-account-dropdown">
+                                    <ul>
+                                        <li>
+                                            <a href="{{route('register')}}">انشاء حساب</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('login')}}" style="border-bottom: 0px">تسجيل الدخول</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            @endif
+                        </li>
                         <li class="axil-mobile-toggle">
                             <button class="menu-btn mobile-nav-toggler">
                                 <i class="flaticon-menu-2"></i>

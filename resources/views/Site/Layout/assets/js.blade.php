@@ -27,6 +27,8 @@
 <script src="{{asset('assets/main')}}/toastr/toastr.min.js"></script>
 
 <script type="text/javascript">
+    $('.dropify').dropify("Upload Here");
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -91,6 +93,55 @@
             processData: false
         });
     });
+
+    // add to cart
+    $(".add-to-cart").click(function() {
+        var product_id = $(this).data("id");
+        var url = "{{route('addToCart')}}";
+        $.ajax({
+            url:url,
+            type: 'POST',
+            data: {
+                "product_id" : product_id
+            },
+            beforeSend: function(){
+                $(".loader-container").show();
+            },
+            success: function (data) {
+                if (data.status == 200){
+                    toastr.success(data.message);
+                    $('#cartIcon').html(`<span class="cart-count">${data.count}</span><i class="flaticon-shopping-cart"></i>`)
+                }
+                else if (data.status == 202){
+                    toastr.info(data.message);
+                }
+                else {
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                }
+                $(".loader-container").fadeOut("slow");
+            },
+            error: function (data) {
+                if (data.status == 401) {
+                    toastr.info('يرجي تسجيل الدخول اولا');
+                }
+                if (data.status == 500) {
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                }
+                else if (data.status == 422) {
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors, function (key, value) {
+                        if ($.isPlainObject(value)) {
+                            $.each(value, function (key, value) {
+                                toastr.error(value);
+                            });
+                        }
+                    });
+                }
+                $(".loader-container").fadeOut("slow");
+            },//end error method
+        });
+    });
+
 
 </script>
 

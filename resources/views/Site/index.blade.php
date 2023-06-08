@@ -75,136 +75,6 @@
 {{--    @endif--}}
 
     <!-- Start Categorie Area  -->
-{{--    <div class="axil-categorie-area bg-color-white axil-section-gapcommon">--}}
-{{--        <div class="container">--}}
-{{--            <div class="section-title-wrapper">--}}
-{{--                <span class="title-highlighter highlighter-secondary"> <i class="far fa-tags"></i> الاقسام</span>--}}
-{{--                <h2 class="title">أقسام المنتجات</h2>--}}
-{{--            </div>--}}
-{{--            <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" style="width: 64px;height: 64px" src="{{asset('assets/site')}}/images/product/categories/elec-4.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Phones</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="300" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-5.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Computers</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="400" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-11.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Accessories</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="500" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-6.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Laptops</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="600" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-2.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Monitors</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="700" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-7.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Networking</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="800" data-sal-duration="500">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-8.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">PC Gaming</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-1.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Smartwatches</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-9.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Headphones</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-10.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Camera & Photo</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-8.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Video Games</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--                <!-- End .slick-single-layout -->--}}
-{{--                <div class="slick-single-layout">--}}
-{{--                    <div class="categrie-product">--}}
-{{--                        <a href="#">--}}
-{{--                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-1.png" alt="product categorie">--}}
-{{--                            <h6 class="cat-title">Sports</h6>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End .categrie-product -->--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!-- End Categorie Area  -->
 
     <!-- Poster Countdown Area  -->
 {{--    <div class="axil-poster-countdown">--}}
@@ -242,132 +112,24 @@
     <!-- Start Expolre Product Area  -->
     <div class="axil-product-area bg-color-white axil-section-gap">
         <div class="container">
-            <div class="section-title-wrapper">
+            <div class="section-title-wrapper" style="margin-bottom: 10px">
                 <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i> منتجاتنا</span>
-                <h2 class="title">استكشف منتجاتنا</h2>
+                <h2 class="title" style="margin-bottom: 0px">استكشف منتجاتنا</h2>
             </div>
-            <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" style="width: 64px;height: 64px" src="{{asset('assets/site')}}/images/product/categories/elec-4.png" alt="product categorie">
-                            <h6 class="cat-title">Phones</h6>
-                        </a>
+            @if($categories->count())
+                    <div class="categrie-product-activation-3 slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
+                        @foreach($categories as $category)
+                            <div class="slick-single-layout slick-slide">
+                                <div class="categrie-product categrie-product-3" data-sal="zoom-out" data-sal-delay="100" data-sal-duration="500">
+                                    <a href="#">
+                                        <img class="img-fluid" src="{{getFile($category->image)}}" style="width: 64px;height: 64px;" alt="product categorie">
+                                        <h6 class="cat-title">{{$category->title}}</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="300" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-5.png" alt="product categorie">
-                            <h6 class="cat-title">Computers</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="400" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-11.png" alt="product categorie">
-                            <h6 class="cat-title">Accessories</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="500" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-6.png" alt="product categorie">
-                            <h6 class="cat-title">Laptops</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="600" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-2.png" alt="product categorie">
-                            <h6 class="cat-title">Monitors</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="700" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-7.png" alt="product categorie">
-                            <h6 class="cat-title">Networking</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product" data-sal="zoom-out" data-sal-delay="800" data-sal-duration="500">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-8.png" alt="product categorie">
-                            <h6 class="cat-title">PC Gaming</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-1.png" alt="product categorie">
-                            <h6 class="cat-title">Smartwatches</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-9.png" alt="product categorie">
-                            <h6 class="cat-title">Headphones</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-10.png" alt="product categorie">
-                            <h6 class="cat-title">Camera & Photo</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-8.png" alt="product categorie">
-                            <h6 class="cat-title">Video Games</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-                <!-- End .slick-single-layout -->
-                <div class="slick-single-layout">
-                    <div class="categrie-product">
-                        <a href="#">
-                            <img class="img-fluid" src="{{asset('assets/site')}}/images/product/categories/elec-1.png" alt="product categorie">
-                            <h6 class="cat-title">Sports</h6>
-                        </a>
-                    </div>
-                    <!-- End .categrie-product -->
-                </div>
-            </div>
-
+            @endif
             <div class="explore-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
                 <div class="slick-single-layout">
                     <div class="row row--15">
@@ -397,6 +159,7 @@
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
 {{--                                                <li class="quickview"><a href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>--}}
+                                                <li class="wishlist add-to-cart" data-id="{{$product->id}}"><a href="javascript:void(0)"><i class="far fa-shopping-cart" title="اضف للسلة"></i></a></li>
                                                 <li class="select-option">
                                                     <a href="{{route('productDetails',$product->title)}}">
                                                         عرض التفاصيل
@@ -828,6 +591,7 @@
                                         </div>
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
+                                                <li class="wishlist add-to-cart" data-id="{{$product->id}}"><a href="javascript:void(0)"><i class="far fa-shopping-cart" title="اضف للسلة"></i></a></li>
                                                 <li class="select-option">
                                                     <a href="{{route('productDetails',$pro->title)}}">
                                                         عرض التفاصيل
@@ -888,7 +652,7 @@
                                         @endif
                                     </div>
                                     <div class="product-cart">
-                                        <a href="{{route('productDetails',$pro->title)}}" class="cart-btn"><i class="fal fa-shopping-cart"></i></a>
+                                        <a href="{{route('productDetails',$pro->title)}}" class="cart-btn"><i class="fal fa-arrow-alt-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -903,6 +667,10 @@
 
 
     @include('Site.Layout.Sections.why-us')
+
+    @include('Site.Layout.Sections.brands')
+
+
 
 
     <!-- Start Axil Product Poster Area  -->

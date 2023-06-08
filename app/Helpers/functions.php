@@ -38,3 +38,10 @@ function loggedAdmin($field = null){
     else
         return auth()->guard('admin')->user()->$field;
 }
+
+function loggedUser($field = null){
+    if($field == null)
+        return Auth::guard('user');
+    else
+        return auth()->guard('user')->user()->$field;
+}

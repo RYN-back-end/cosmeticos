@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Site\AuthController;
 use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Site\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +37,25 @@ Route::get('blogDetails/{id}', [HomeController::class,'blogDetails'])->name('blo
 Route::get('about', [HomeController::class,'about'])->name('about');
 
 
+// account
+Route::get('login', [AuthController::class,'index'])->name('login');
+Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('userRegister', [AuthController::class, 'userRegister'])->name('userRegister');
+Route::post('postLogin', [AuthController::class, 'postLogin'])->name('postLogin');
 
+Route::group(['middleware' => 'auth:user'], function () {
+
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+    // profile
+    Route::get('profile', [UserController::class, 'profile'])->name('profile');
+
+    // cart handle
+    Route::POST('addToCart', [UserController::class, 'addToCart'])->name('addToCart');
+
+
+
+});
 
 Route::get('/clear/route', function (){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');

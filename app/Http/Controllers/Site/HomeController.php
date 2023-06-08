@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactUsRequest;
 use App\Models\Blog;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\ContactUs;
 use App\Models\Product;
 use App\Models\Review;
@@ -23,7 +25,9 @@ class HomeController extends Controller
         $latestProducts  =  Product::latest()->limit(6)->get();
         $highestProducts =  Product::orderBy('stars','DESC')->limit(6)->get();
         $reviews         = DB::table('reviews')->inRandomOrder()->limit(5)->get();
-        return view('Site.index',compact('sliders','products','reviews','latestProducts','highestProducts'));
+        $categories      = DB::table('categories')->inRandomOrder()->limit(12)->get();
+        $brands          = DB::table('brands')->inRandomOrder()->limit(6)->get();
+        return view('Site.index',compact('sliders','products','reviews','brands','latestProducts','highestProducts','categories'));
     }
 
     public function productPage(){
