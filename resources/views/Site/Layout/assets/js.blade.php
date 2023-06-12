@@ -142,6 +142,57 @@
         });
     });
 
+    // add to wishlist
+    $(".add-to-wishlist").click(function() {
+        var product_id = $(this).data("id");
+        var url = "{{route('addToWishlist')}}";
+        $.ajax({
+            url:url,
+            type: 'POST',
+            data: {
+                "product_id" : product_id
+            },
+            beforeSend: function(){
+                $(".loader-container").show();
+            },
+            success: function (data) {
+                if (data.status == 200){
+                    toastr.success(data.message);
+                    if(data.count != 0)
+                        $('#wishIcon').html(`<span class="wishlist-count">${data.count}</span><i class="flaticon-heart"></i>`)
+                    else
+                        $('#wishIcon').html(`<i class="flaticon-heart"></i>`)
+                }
+                else if (data.status == 202){
+                    toastr.info(data.message);
+                }
+                else {
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                }
+                $(".loader-container").fadeOut("slow");
+            },
+            error: function (data) {
+                if (data.status == 401) {
+                    toastr.info('يرجي تسجيل الدخول اولا');
+                }
+                if (data.status == 500) {
+                    toastr.error('عذرا هناك خطأ فني 😞');
+                }
+                else if (data.status == 422) {
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors, function (key, value) {
+                        if ($.isPlainObject(value)) {
+                            $.each(value, function (key, value) {
+                                toastr.error(value);
+                            });
+                        }
+                    });
+                }
+                $(".loader-container").fadeOut("slow");
+            },//end error method
+        });
+    });
+
 
 </script>
 
