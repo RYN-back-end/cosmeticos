@@ -58,8 +58,14 @@
                         {{--                                <i class="flaticon-shopping-cart"></i>--}}
                         {{--                            </a>--}}
                         {{--                        </li>--}}
-                        <li class="wishlist">
-                            <a href="wishlist.html" class="makeLogin">
+                        <li class="wishlist shopping-cart">
+                            <a href="wishlist.html" class="wishlist-btn makeLogin" id="wishIcon">
+                                @if (auth('user')->check())
+                                        <?php $count = \App\Models\FavoriteProduct::where('user_id', loggedUser('id'))->count() ?>
+                                    @if($count)
+                                        <span class="wishlist-count">{{$count}}</span>
+                                    @endif
+                                @endif
                                 <i class="flaticon-heart"></i>
                             </a>
                         </li>

@@ -8199,6 +8199,22 @@ a.axil-btn.wishlist-btn:hover:before, button.axil-btn.wishlist-btn:hover:before 
     opacity: 1
 }
 
+.wishlist-btn .wishlist-count{
+    text-align: center;
+    background-color: #f03560;
+    border: 2px solid var(--color-white);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-white);
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    line-height: 19px;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+}
+
 .mainmenu > .menu-item-has-children .axil-submenu {
     position: absolute;
     top: 100%;

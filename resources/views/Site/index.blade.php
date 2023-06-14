@@ -165,7 +165,11 @@
                                                         عرض التفاصيل
                                                     </a>
                                                 </li>
-{{--                                                <li class="wishlist"><a href="wishlist.html"><i class="far fa-heart"></i></a></li>--}}
+                                                <li class="wishlist add-to-wishlist" data-id="{{$product->id}}">
+                                                    <a href="javascript:void(0)" title="اضف للمفضلة">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -591,10 +595,15 @@
                                         </div>
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
-                                                <li class="wishlist add-to-cart" data-id="{{$product->id}}"><a href="javascript:void(0)"><i class="far fa-shopping-cart" title="اضف للسلة"></i></a></li>
+                                                <li class="wishlist add-to-cart" data-id="{{$pro->id}}"><a href="javascript:void(0)"><i class="far fa-shopping-cart" title="اضف للسلة"></i></a></li>
                                                 <li class="select-option">
                                                     <a href="{{route('productDetails',$pro->title)}}">
                                                         عرض التفاصيل
+                                                    </a>
+                                                </li>
+                                                <li class="wishlist add-to-wishlist" data-id="{{$pro->id}}">
+                                                    <a href="javascript:void(0)" title="اضف للمفضلة">
+                                                        <i class="far fa-heart"></i>
                                                     </a>
                                                 </li>
                                             </ul>

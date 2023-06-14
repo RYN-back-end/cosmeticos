@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\FavoriteProduct;
 use App\Traits\ResponseTrait;
 use App\Traits\UploadFiles;
 use Illuminate\Http\Request;
@@ -42,4 +43,40 @@ class UserController extends Controller
             'count'   => $count
         ]);
     }
+
+    // wishlist handle
+    public function addToWishlist(request $request){
+            $data = $request->validate([
+            'product_id'   =>'required|exists:products,id',
+        ]);
+
+
+
+        // check if exists in the wishlist
+        $check = FavoriteProduct::where([['product_id',$data['product_id']],['user_id',loggedUser('id')]])->first();
+        if($check){
+            $check->delete();
+            $count = FavoriteProduct::where('user_id',loggedUser('id'))->count();
+            return response()->json([
+                'status' => 200,
+                'message' => "تم ازالة المنتج من المفضلة",
+                'count'   => $count
+            ]);
+        }
+        else{
+            // add to cart
+            $data['user_id'] = loggedUser('id');
+            FavoriteProduct::create($data);
+            $new_count = FavoriteProduct::where('user_id',loggedUser('id'))->count();
+            return response()->json([
+                'status' => 200,
+                'message' => "تم اضافة المنتج الي المفضلة",
+                'count'   => $new_count
+            ]);
+        }
+
+
+    }
+
+
 }
