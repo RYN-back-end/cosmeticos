@@ -10,7 +10,8 @@
     <div class="loader"></div>
 </div>
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
 <![endif]-->
 <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
 @include('Site.Layout.inc.header')
@@ -29,7 +30,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times"></i></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="far fa-times"></i></button>
             </div>
             <div class="modal-body">
                 <div class="single-product-thumb">
@@ -37,36 +39,43 @@
                         <div class="col-lg-7 mb--40">
                             <div class="row">
                                 <div class="col-lg-10 order-lg-2">
-                                    <div class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
+                                    <div
+                                        class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
                                         <div class="thumbnail">
-                                            <img src="{{asset('assets/site')}}/images/product/product-big-01.png" alt="Product Images">
+                                            <img src="{{asset('assets/site')}}/images/product/product-big-01.png"
+                                                 alt="Product Images">
                                             <div class="label-block label-right">
                                                 <div class="product-badget">20% OFF</div>
                                             </div>
                                             <div class="product-quick-view position-view">
-                                                <a href="{{asset('assets/site')}}/images/product/product-big-01.png" class="popup-zoom">
+                                                <a href="{{asset('assets/site')}}/images/product/product-big-01.png"
+                                                   class="popup-zoom">
                                                     <i class="far fa-search-plus"></i>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="thumbnail">
-                                            <img src="{{asset('assets/site')}}/images/product/product-big-02.png" alt="Product Images">
+                                            <img src="{{asset('assets/site')}}/images/product/product-big-02.png"
+                                                 alt="Product Images">
                                             <div class="label-block label-right">
                                                 <div class="product-badget">20% OFF</div>
                                             </div>
                                             <div class="product-quick-view position-view">
-                                                <a href="{{asset('assets/site')}}/images/product/product-big-02.png" class="popup-zoom">
+                                                <a href="{{asset('assets/site')}}/images/product/product-big-02.png"
+                                                   class="popup-zoom">
                                                     <i class="far fa-search-plus"></i>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="thumbnail">
-                                            <img src="{{asset('assets/site')}}/images/product/product-big-03.png" alt="Product Images">
+                                            <img src="{{asset('assets/site')}}/images/product/product-big-03.png"
+                                                 alt="Product Images">
                                             <div class="label-block label-right">
                                                 <div class="product-badget">20% OFF</div>
                                             </div>
                                             <div class="product-quick-view position-view">
-                                                <a href="{{asset('assets/site')}}/images/product/product-big-03.png" class="popup-zoom">
+                                                <a href="{{asset('assets/site')}}/images/product/product-big-03.png"
+                                                   class="popup-zoom">
                                                     <i class="far fa-search-plus"></i>
                                                 </a>
                                             </div>
@@ -76,13 +85,19 @@
                                 <div class="col-lg-2 order-lg-1">
                                     <div class="product-small-thumb small-thumb-wrapper">
                                         <div class="small-thumb-img">
-                                            <img src="{{asset('assets/site')}}/images/product/product-thumb/thumb-08.png" alt="thumb image">
+                                            <img
+                                                src="{{asset('assets/site')}}/images/product/product-thumb/thumb-08.png"
+                                                alt="thumb image">
                                         </div>
                                         <div class="small-thumb-img">
-                                            <img src="{{asset('assets/site')}}/images/product/product-thumb/thumb-07.png" alt="thumb image">
+                                            <img
+                                                src="{{asset('assets/site')}}/images/product/product-thumb/thumb-07.png"
+                                                alt="thumb image">
                                         </div>
                                         <div class="small-thumb-img">
-                                            <img src="{{asset('assets/site')}}/images/product/product-thumb/thumb-09.png" alt="thumb image">
+                                            <img
+                                                src="{{asset('assets/site')}}/images/product/product-thumb/thumb-09.png"
+                                                alt="thumb image">
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +121,9 @@
                                         <li><i class="fal fa-check"></i>Free delivery available</li>
                                         <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
                                     </ul>
-                                    <p class="description">In ornare lorem ut est dapibus, ut tincidunt nisi pretium. Integer ante est, elementum eget magna. Pellentesque sagittis dictum libero, eu dignissim tellus.</p>
+                                    <p class="description">In ornare lorem ut est dapibus, ut tincidunt nisi pretium.
+                                        Integer ante est, elementum eget magna. Pellentesque sagittis dictum libero, eu
+                                        dignissim tellus.</p>
 
                                     <div class="product-variations-wrapper">
 
@@ -149,8 +166,11 @@
 
                                         <!-- Start Product Action  -->
                                         <ul class="product-action d-flex-center mb--0">
-                                            <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add to Cart</a></li>
-                                            <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
+                                            <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Add
+                                                    to Cart</a></li>
+                                            <li class="wishlist"><a href="wishlist.html"
+                                                                    class="axil-btn wishlist-btn"><i
+                                                        class="far fa-heart"></i></a></li>
                                         </ul>
                                         <!-- End Product Action  -->
 
@@ -174,7 +194,8 @@
         <div class="card-header">
             <form action="#">
                 <div class="input-group">
-                    <input type="search" class="form-control" name="prod-search" id="prod-search" placeholder="Write Something....">
+                    <input type="search" class="form-control" name="prod-search" id="prod-search"
+                           placeholder="Write Something....">
                     <button type="submit" class="axil-btn btn-bg-primary"><i class="far fa-search"></i></button>
                 </div>
             </form>
@@ -188,7 +209,8 @@
                 <div class="axil-product-list">
                     <div class="thumbnail">
                         <a href="single-product.html">
-                            <img src="{{asset('assets/site')}}/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
+                            <img src="{{asset('assets/site')}}/images/product/electric/product-09.png"
+                                 alt="Yantiti Leather Bags">
                         </a>
                     </div>
                     <div class="product-content">
@@ -216,7 +238,8 @@
                 <div class="axil-product-list">
                     <div class="thumbnail">
                         <a href="single-product.html">
-                            <img src="{{asset('assets/site')}}/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
+                            <img src="{{asset('assets/site')}}/images/product/electric/product-09.png"
+                                 alt="Yantiti Leather Bags">
                         </a>
                     </div>
                     <div class="product-content">
@@ -251,94 +274,89 @@
 <div class="cart-dropdown" id="cart-dropdown">
     <div class="cart-content-wrap">
         <div class="cart-header">
-            <h2 class="header-title">Cart review</h2>
+            <h2 class="header-title">سلة الشراء</h2>
             <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
         </div>
-        <div class="cart-body">
-            <ul class="cart-item-list">
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product.html"><img src="{{asset('assets/site')}}/images/product/electric/product-01.png" alt="Commodo Blown Lamp"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
+        @if(auth('user')->check())
+            <div class="cart-body">
+                <ul class="cart-item-list" id="cart-list">
+                    <div
+                        class="text-center {{(\App\Models\Cart::where('user_id',loggedUser('id'))->count()) ? 'd-none' : ''}}">
+                        <p>سلة الشراء فارغة الان</p>
+                        <img src="{{asset('uploads/cart.webp')}}" style="width: 80%;height: 60%" alt="السلة فارغة">
                     </div>
-                    <div class="item-content">
-                        <div class="product-rating">
+                        <?php
+                         $cart_elements = \App\Models\Cart::where('user_id', loggedUser('id'))
+                             ->with('product')->latest()->take('5')->get();
+                        ?>
+                    @foreach($cart_elements as $cart)
+                        <li class="cart-item">
+                            <div class="item-img">
+                                <a href="{{route('productDetails',$cart->product->title)}}"><img
+                                        src="{{getFile($cart->product->image)}}"
+                                        alt="{{$cart->product->title}}"></a>
+                                <button class="close-btn"><i class="fas fa-times"></i></button>
+                            </div>
+                            <div class="item-content">
+                                <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
+                                    @for ($i = 1; $i <= $cart->product->stars; $i++)
+                                        <i class='fas fa-star text-warning'></i>
+                                    @endfor
+                                    @for ($i = 5; $i > $cart->product->stars; $i--)
+                                        <i class='fal fa-star text-warning'></i>
+                                    @endfor
 							</span>
-                            <span class="rating-number">(64)</span>
-                        </div>
-                        <h3 class="item-title"><a href="single-product-3.html">Wireless PS Handler</a></h3>
-                        <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
-                        <div class="pro-qty item-quantity">
-                            <input type="number" class="quantity-input" value="15">
-                        </div>
-                    </div>
-                </li>
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product-2.html"><img src="{{asset('assets/site')}}/images/product/electric/product-02.png" alt="Commodo Blown Lamp"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="item-content">
-                        <div class="product-rating">
-                                <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
-                            <span class="rating-number">(4)</span>
-                        </div>
-                        <h3 class="item-title"><a href="single-product-2.html">Gradient Light Keyboard</a></h3>
-                        <div class="item-price"><span class="currency-symbol">$</span>255.00</div>
-                        <div class="pro-qty item-quantity">
-                            <input type="number" class="quantity-input" value="5">
-                        </div>
-                    </div>
-                </li>
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product-3.html"><img src="{{asset('assets/site')}}/images/product/electric/product-03.png" alt="Commodo Blown Lamp"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="item-content">
-                        <div class="product-rating">
-                                <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
-                            <span class="rating-number">(6)</span>
-                        </div>
-                        <h3 class="item-title"><a href="single-product.html">HD CC Camera</a></h3>
-                        <div class="item-price"><span class="currency-symbol">$</span>200.00</div>
-                        <div class="pro-qty item-quantity">
-                            <input type="number" class="quantity-input" value="100">
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="cart-footer">
-            <h3 class="cart-subtotal">
-                <span class="subtotal-title">Subtotal:</span>
-                <span class="subtotal-amount">$610.00</span>
-            </h3>
-            <div class="group-btn">
-                <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
-                <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
+                                    <span class="rating-number">({{$cart->product->reviews_num}})</span>
+                                </div>
+                                <h3 class="item-title"><a href="{{route('productDetails',$cart->product->title)}}">{{$cart->product->title}}</a></h3>
+                                <div class="item-price">
+                                    @if($cart->product->price_after && $cart->product->price_after != 0)
+                                        <strike>{{$cart->product->price_before}} ج م</strike>
+                                        {{$cart->product->price_after}} ج م
+                                    @else
+                                        {{$cart->product->price_before}} ج م
+                                    @endif
+                                </div>
+                                <div class="pro-qty item-quantity">
+                                    <input type="number" class="quantity-input" value="{{$cart->qty}}">
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+
+                </ul>
             </div>
-        </div>
+            <div class="cart-footer">
+                <h3 class="cart-subtotal">
+                    <span class="subtotal-title">Subtotal:</span>
+                    <span class="subtotal-amount">$610.00</span>
+                </h3>
+                <div class="group-btn">
+                    <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
+                    <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
+                </div>
+            </div>
+        @else
+            <div class="cart-body">
+                <ul class="cart-item-list" id="cart-list">
+                    <div class="text-center">
+                        <p>سجل الدخول للتحكم في سلة الشراء</p>
+                        <img src="{{asset('uploads/do-login.png')}}" style="width: 80%;height: 60%">
+                    </div>
+                </ul>
+            </div>
+            <div class="cart-footer">
+                <div class="group-btn">
+                    <a href="{{route('login')}}" class="axil-btn btn-bg-primary viewcart-btn">تسجيل الدخول</a>
+                    <a href="{{route('register')}}" class="axil-btn btn-bg-secondary checkout-btn">انشاء حساب</a>
+                </div>
+            </div>
+
+        @endif
     </div>
 </div>
+
 
 <!-- Offer Modal Start -->
 <div class="offer-popup-modal" id="offer-popup-modal">

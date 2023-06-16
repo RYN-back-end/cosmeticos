@@ -59,7 +59,7 @@
                         {{--                            </a>--}}
                         {{--                        </li>--}}
                         <li class="wishlist shopping-cart">
-                            <a href="wishlist.html" class="wishlist-btn makeLogin" id="wishIcon">
+                            <a href="{{route('wishlist')}}" class="wishlist-btn makeLogin" id="wishIcon">
                                 @if (auth('user')->check())
                                         <?php $count = \App\Models\FavoriteProduct::where('user_id', loggedUser('id'))->count() ?>
                                     @if($count)

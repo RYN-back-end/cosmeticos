@@ -31,8 +31,9 @@ class HomeController extends Controller
     }
 
     public function productPage(){
+        $categories = Category::latest()->get();
         $products = Product::latest()->paginate(9);
-        return view('Site.products',compact('products'));
+        return view('Site.products',compact('products','categories'));
     }
 
 

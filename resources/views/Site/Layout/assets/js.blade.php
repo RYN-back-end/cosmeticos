@@ -142,6 +142,13 @@
         });
     });
 
+    // add to cart
+    $(".cart-dropdown-btn").click(function() {
+
+    });
+
+
+
     // add to wishlist
     $(".add-to-wishlist").click(function() {
         var product_id = $(this).data("id");

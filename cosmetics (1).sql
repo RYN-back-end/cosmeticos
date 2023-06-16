@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 07:32 PM
+-- Generation Time: Jun 16, 2023 at 10:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -102,6 +102,7 @@ CREATE TABLE `carts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
+  `qty` int(10) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -110,10 +111,11 @@ CREATE TABLE `carts` (
 -- Dumping data for table `carts`
 --
 
-INSERT INTO `carts` (`id`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(7, 14, 1, '2023-06-08 14:53:32', '2023-06-08 14:53:32'),
-(8, 13, 1, '2023-06-08 14:53:40', '2023-06-08 14:53:40'),
-(9, 12, 1, '2023-06-08 14:53:43', '2023-06-08 14:53:43');
+INSERT INTO `carts` (`id`, `product_id`, `user_id`, `qty`, `created_at`, `updated_at`) VALUES
+(12, 13, 1, 1, '2023-06-16 14:33:37', '2023-06-16 14:33:37'),
+(13, 12, 1, 1, '2023-06-16 15:26:28', '2023-06-16 15:26:28'),
+(14, 14, 1, 1, '2023-06-16 15:26:44', '2023-06-16 15:26:44'),
+(15, 11, 1, 1, '2023-06-16 15:26:47', '2023-06-16 15:26:47');
 
 -- --------------------------------------------------------
 
@@ -187,6 +189,28 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `favorite_products`
+--
+
+CREATE TABLE `favorite_products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `favorite_products`
+--
+
+INSERT INTO `favorite_products` (`id`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(13, 13, 1, '2023-06-16 13:35:55', '2023-06-16 13:35:55'),
+(14, 12, 1, '2023-06-16 13:35:58', '2023-06-16 13:35:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -215,7 +239,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (26, '2023_06_01_221255_create_categories_table', 10),
 (27, '2023_06_02_141640_create_brands_table', 11),
 (28, '2023_06_07_202633_create_users_table', 12),
-(29, '2023_06_08_153141_create_carts_table', 13);
+(29, '2023_06_08_153141_create_carts_table', 13),
+(30, '2023_06_12_174229_create_favorite_products_table', 14);
 
 -- --------------------------------------------------------
 
@@ -474,6 +499,14 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `favorite_products`
+--
+ALTER TABLE `favorite_products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `favorite_products_product_id_foreign` (`product_id`),
+  ADD KEY `favorite_products_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -559,7 +592,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -580,10 +613,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `favorite_products`
+--
+ALTER TABLE `favorite_products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -643,6 +682,13 @@ ALTER TABLE `blogs`
 ALTER TABLE `carts`
   ADD CONSTRAINT `carts_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `carts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `favorite_products`
+--
+ALTER TABLE `favorite_products`
+  ADD CONSTRAINT `favorite_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `favorite_products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`

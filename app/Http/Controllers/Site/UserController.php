@@ -43,6 +43,7 @@ class UserController extends Controller
             'count'   => $count
         ]);
     }
+    ///////////////
 
     // wishlist handle
     public function addToWishlist(request $request){
@@ -74,9 +75,33 @@ class UserController extends Controller
                 'count'   => $new_count
             ]);
         }
-
-
     }
+
+    public function wishlistPage(){
+        $userFavProducts = FavoriteProduct::where('user_id',loggedUser('id'))
+            ->with(['product'=> function ($query) {
+        $query->select('id', 'title','image','price_before','price_after');
+    }])->select('id','product_id')->get();
+        return view('Site/User/wishlist',compact('userFavProducts'));
+    }
+
+    public function removeFavourite(request $request){
+        $data = $request->validate([
+            'favourite_id'   =>'required|exists:favorite_products,id',
+        ]);
+        // check if exists in the wishlist
+        $check = FavoriteProduct::where([['id',$data['favourite_id']],['user_id',loggedUser('id')]])->first();
+        if($check){
+            $check->delete();
+            $count = FavoriteProduct::where('user_id',loggedUser('id'))->count();
+            return response()->json([
+                'status' => 200,
+                'message' => "تم ازالة المنتج من المفضلة",
+                'count'   => $count,
+            ]);
+        }
+    }
+    /////////////////////
 
 
 }

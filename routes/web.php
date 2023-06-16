@@ -53,8 +53,10 @@ Route::group(['middleware' => 'auth:user'], function () {
     // cart handle
     Route::POST('addToCart', [UserController::class, 'addToCart'])->name('addToCart');
 
-    // cart handle
+    // Wishlist handle
     Route::POST('addToWishlist', [UserController::class, 'addToWishlist'])->name('addToWishlist');
+    Route::POST('removeFavourite', [UserController::class, 'removeFavourite'])->name('removeFavourite');
+    Route::get('wishlist', [UserController::class, 'wishlistPage'])->name('wishlist');
 
 
 
