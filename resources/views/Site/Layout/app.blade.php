@@ -278,63 +278,11 @@
             <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
         </div>
         @if(auth('user')->check())
-            <div class="cart-body">
-                <ul class="cart-item-list" id="cart-list">
-                    <div
-                        class="text-center {{(\App\Models\Cart::where('user_id',loggedUser('id'))->count()) ? 'd-none' : ''}}">
-                        <p>سلة الشراء فارغة الان</p>
-                        <img src="{{asset('uploads/cart.webp')}}" style="width: 80%;height: 60%" alt="السلة فارغة">
-                    </div>
-                        <?php
-                         $cart_elements = \App\Models\Cart::where('user_id', loggedUser('id'))
-                             ->with('product')->latest()->take('5')->get();
-                        ?>
-                    @foreach($cart_elements as $cart)
-                        <li class="cart-item">
-                            <div class="item-img">
-                                <a href="{{route('productDetails',$cart->product->title)}}"><img
-                                        src="{{getFile($cart->product->image)}}"
-                                        alt="{{$cart->product->title}}"></a>
-                                <button class="close-btn"><i class="fas fa-times"></i></button>
-                            </div>
-                            <div class="item-content">
-                                <div class="product-rating">
-                                <span class="icon">
-                                    @for ($i = 1; $i <= $cart->product->stars; $i++)
-                                        <i class='fas fa-star text-warning'></i>
-                                    @endfor
-                                    @for ($i = 5; $i > $cart->product->stars; $i--)
-                                        <i class='fal fa-star text-warning'></i>
-                                    @endfor
-							</span>
-                                    <span class="rating-number">({{$cart->product->reviews_num}})</span>
-                                </div>
-                                <h3 class="item-title"><a href="{{route('productDetails',$cart->product->title)}}">{{$cart->product->title}}</a></h3>
-                                <div class="item-price">
-                                    @if($cart->product->price_after && $cart->product->price_after != 0)
-                                        <strike>{{$cart->product->price_before}} ج م</strike>
-                                        {{$cart->product->price_after}} ج م
-                                    @else
-                                        {{$cart->product->price_before}} ج م
-                                    @endif
-                                </div>
-                                <div class="pro-qty item-quantity">
-                                    <input type="number" class="quantity-input" value="{{$cart->qty}}">
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
+            <div id="append-here">
+                <div class="cart-body">
+                    <ul class="cart-item-list" id="cart-list">
 
-                </ul>
-            </div>
-            <div class="cart-footer">
-                <h3 class="cart-subtotal">
-                    <span class="subtotal-title">Subtotal:</span>
-                    <span class="subtotal-amount">$610.00</span>
-                </h3>
-                <div class="group-btn">
-                    <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
-                    <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
+                    </ul>
                 </div>
             </div>
         @else

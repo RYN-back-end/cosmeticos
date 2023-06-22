@@ -26,7 +26,7 @@
         overflow-x: hidden;
     }
     a {
-        color: #ff497c;
+        color: #7b50cb;
         text-decoration: none;
     }
 
@@ -42,7 +42,7 @@
         font-size: 5rem;
     }
     .span-blue {
-        color: #ff497c;
+        color: #7b50cb;
     }
     .signup-container,
     .signup-form {
@@ -77,13 +77,13 @@
         width: 100%;
     }
     .input-text:focus {
-        outline-color: #e14a73;
+        outline-color: #7b50cb;
     }
 
     .btn {
         padding: 2rem 3rem;
         border: none;
-        background: #ff497c;
+        background: #7b50cb;
         color: #fff;
         border-radius: 1rem;
         cursor: pointer;
@@ -101,7 +101,7 @@
         box-shadow: none;
     }
     .btn-login:hover {
-        background: #e14a73;
+        background: #7b50cb;
     }
     .inp {
         position: relative;
@@ -125,7 +125,7 @@
         transform: scale(0.75);
     }
     .input-text:focus + .label {
-        color: #e14a73;
+        color: #7b50cb;
     }
 
     .input-icon {
@@ -179,7 +179,7 @@
     }
 
     .welcome-container {
-        background: #F8D7D9;
+        background: #ebe1ff;
         grid-column: 2 / 3;
         grid-row: 1;
         display: flex;

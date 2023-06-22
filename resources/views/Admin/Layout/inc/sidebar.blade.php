@@ -61,6 +61,20 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="{{route('users.index')}}" class="waves-effect">
+                        <i class="bx bxs-user-detail"></i>
+                        <span key="t-users">العملاء</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('orders.index')}}" class="waves-effect">
+                        <i class="mdi mdi-shopping"></i>
+                        <span key="t-orders">الطلبات</span>
+                    </a>
+                </li>
+
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -96,6 +110,17 @@
                     <a href="{{route('setting.index')}}" class="waves-effect">
                         <i class="bx bx-cog"></i>
                         <span key="t-Setting">الاعدادات</span>
+                    </a>
+                </li>
+
+
+
+
+
+                <li>
+                    <a href="{{route('admin.logout')}}" class="waves-effect">
+                        <i class="bx bx-power-off"></i>
+                        <span key="t-logout">تسجيل الخروج</span>
                     </a>
                 </li>
 

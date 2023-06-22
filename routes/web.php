@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Site\AuthController;
 use App\Http\Controllers\Site\HomeController;
+use App\Http\Controllers\Site\OrderController;
 use App\Http\Controllers\Site\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,12 +53,19 @@ Route::group(['middleware' => 'auth:user'], function () {
 
     // cart handle
     Route::POST('addToCart', [UserController::class, 'addToCart'])->name('addToCart');
+    Route::get('getMyCart', [UserController::class, 'getMyCart'])->name('getMyCart');
+    Route::POST('deleteFromMyCart', [UserController::class, 'deleteFromMyCart'])->name('deleteFromMyCart');
 
     // Wishlist handle
     Route::POST('addToWishlist', [UserController::class, 'addToWishlist'])->name('addToWishlist');
     Route::POST('removeFavourite', [UserController::class, 'removeFavourite'])->name('removeFavourite');
     Route::get('wishlist', [UserController::class, 'wishlistPage'])->name('wishlist');
 
+
+    // order handle
+    Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
+    Route::post('makeOrder', [OrderController::class, 'makeOrder'])->name('makeOrder');
+    Route::post('deleteOrder', [OrderController::class, 'deleteOrder'])->name('deleteOrder');
 
 
 });

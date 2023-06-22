@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\FavoriteProduct;
+use App\Models\Order;
+use App\Models\Product;
 use App\Traits\ResponseTrait;
 use App\Traits\UploadFiles;
 use Illuminate\Http\Request;
@@ -14,7 +16,8 @@ class UserController extends Controller
     use ResponseTrait,UploadFiles;
 
     public function profile(){
-        return view('Site/User/profile');
+        $orders = Order::where('user_id',loggedUser('id'))->latest()->get();
+        return view('Site/User/profile',compact('orders'));
     }
 
 
@@ -35,6 +38,14 @@ class UserController extends Controller
 
         // add to cart
         $data['user_id'] = loggedUser('id');
+
+        // get the price
+        $product = Product::find($data['product_id']);
+        if($product->price_after != 0)
+            $data['price'] = $product->price_after;
+        else
+            $data['price'] = $product->price_before;
+
         Cart::create($data);
         $count = Cart::where('user_id', $data['user_id'])->count();
         return response()->json([
@@ -42,6 +53,35 @@ class UserController extends Controller
             'message' => "تم اضافة المنتج للسلة",
             'count'   => $count
         ]);
+    }
+
+
+    public function getMyCart(){
+        $cart_elements = Cart::where('user_id', loggedUser('id'))
+            ->with('product')->latest()->take('5')->get();
+        if($cart_elements->count() == 0)
+            return view('Site/User/Empty-Cart');
+        else
+            return view('Site/User/Cart',compact('cart_elements'));
+    }
+
+    public function deleteFromMyCart(request $request){
+        $data = $request->validate([
+            'cart_id'   =>'required|exists:carts,id',
+        ]);
+        // check if exists in the cart
+        $check = Cart::where([['id',$data['cart_id']],['user_id',loggedUser('id')]])->first();
+        if($check){
+            // remove from cart
+            $data['user_id'] = loggedUser('id');
+            $check->delete();
+            $count = Cart::where('user_id', $data['user_id'])->count();
+            return response()->json([
+                'status' => 200,
+                'message' => "تم حذف المنتج من السلة",
+                'count'   => $count
+            ]);
+        }
     }
     ///////////////
 

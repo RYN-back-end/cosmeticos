@@ -11331,6 +11331,19 @@ body.open .closeMask {
     font-size: 14px
 }
 
+.control-qty{
+    text-align: center;
+    height: 26px;
+    width: 26px;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 18px;
+    color: var(--color-black);
+    background-color: #f6f7fb;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+}
+
 .axil-product-table tbody td.product-add-cart .btn-outline:hover {
     border-color: var(--color-primary)
 }

@@ -92,11 +92,6 @@
                                     <span class="title">{{auth('user')->user()->name}}</span>
                                     <ul>
                                         <li>
-                                            <a href="#">
-                                                الاشعارات
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="{{route('profile')}}">
                                                 بيانات حسابي
                                             </a>

@@ -29,7 +29,7 @@
     </main>
 
     <div class="welcome-container">
-        <h3 class="heading-secondary">قم بتسجيل الدخول الان لتتحكم في الموقع 👋<span class="lg">{{($setting->title) ?? ''}}</span></h3>
+        <h3 class="heading-secondary">قم بتسجيل الدخول الان لتتحكم في الموقع 👋</span></h3>
         <img src="{{asset('uploads/log.gif')}}" alt="login">
     </div>
 </div>
