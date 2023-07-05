@@ -48,4 +48,10 @@ class OrderController extends Controller
             'count'  => Order::where('user_id',loggedUser('id'))->count()
         ]);
 }
+
+    public function showProducts($id){
+        $order = Order::where([['id',$id],['user_id',loggedUser('id')]])->firstOrFail();
+        $details = OrderDetails::where('order_id',$order->id)->with('product')->get();
+        return view('Site.Order.Order-Details',compact('order','details'));
+    }
 }

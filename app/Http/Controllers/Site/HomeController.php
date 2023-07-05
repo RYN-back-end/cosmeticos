@@ -30,10 +30,18 @@ class HomeController extends Controller
         return view('Site.index',compact('sliders','products','reviews','brands','latestProducts','highestProducts','categories'));
     }
 
-    public function productPage(){
+    public function productPage(request $request){
         $categories = Category::latest()->get();
-        $products = Product::latest()->paginate(9);
-        return view('Site.products',compact('products','categories'));
+        $selected_category = null;
+
+        if($request->has('category') && $request->category != 'all'){
+            $selected_category = Category::where('title',$request->category)->firstOrFail();
+            $products = Product::latest()->where('category_id',$selected_category->id)->paginate(9);
+        }
+        else
+            $products = Product::latest()->paginate(9);
+
+        return view('Site.products',compact('products','categories','selected_category'));
     }
 
 

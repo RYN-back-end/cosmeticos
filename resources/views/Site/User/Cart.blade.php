@@ -24,15 +24,15 @@
                     <div class="item-price">
                         @if($cart->product->price_after && $cart->product->price_after != 0)
                             <strike>{{$cart->product->price_before}} ج م</strike>
-                            {{$cart->product->price_after}} ج م
+                            <span class="price"> {{$cart->product->price_after}} </span>ج م
                         @else
-                            {{$cart->product->price_before}} ج م
+                            <span class="price"> {{$cart->product->price_before}} </span>ج م
                         @endif
                     </div>
                     <div class="pro-qty item-quantity">
-{{--                        <span class="control-qty minus">-</span>--}}
-{{--                        <input type="number" disabled class="quantity-input" min="1" value="{{$cart->qty}}">--}}
-{{--                        <span class="control-qty plus">+</span>--}}
+                        <span class="control-qty minus">-</span>
+                        <input type="number" disabled class="quantity-input" min="1" value="{{$cart->qty}}">
+                        <span class="control-qty plus">+</span>
                     </div>
                 </div>
             </li>
@@ -45,8 +45,8 @@
         <span class="subtotal-amount" id="subtotal-amount">{{$cart_elements->sum('price')}} ج.م</span>
     </h3>
     <div class="group-btn">
-{{--        <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>--}}
         <a href="{{route('checkout')}}" class="axil-btn btn-bg-secondary checkout-btn">اكمال الطلب</a>
+        <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">تحديث السلة</a>
     </div>
 </div>
 <script>
@@ -84,8 +84,22 @@
         });
     });
 
-    $('.minus').click(function (){
 
+    // handle product qty
+    $('.control-qty').click(function (){
+        var old_value = $(this).parent().find('input').val();
+        var old_price_span = $(this).parent().parent().find(".price");
+        if($(this).hasClass('plus')){
+            old_value++;
+            old_price_span.text(parseFloat(old_price_span.text()) + parseFloat(old_price_span.text()));
+        }
+        else{
+            if(old_value != 1){
+                old_value--;
+                old_price_span.text(parseFloat(old_price_span.text()) - parseFloat(old_price_span.text()));
+            }
+        }
+        $(this).parent().find('input').val(old_value);
     });
 
 </script>

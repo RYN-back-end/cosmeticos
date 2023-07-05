@@ -89,7 +89,7 @@
                                     {{--                                          style="color: black !important;">{{auth('user')->user()->name}}</span>--}}
                                 </a>
                                 <div class="my-account-dropdown">
-                                    <span class="title">{{auth('user')->user()->name}}</span>
+                                    <span class="title name-of-user">{{auth('user')->user()->name}}</span>
                                     <ul>
                                         <li>
                                             <a href="{{route('profile')}}">

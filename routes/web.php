@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth:user'], function () {
 
     // profile
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
+    Route::POST('updateProfile', [UserController::class, 'updateProfile'])->name('updateProfile');
 
     // cart handle
     Route::POST('addToCart', [UserController::class, 'addToCart'])->name('addToCart');
@@ -66,6 +67,7 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::get('checkout', [OrderController::class, 'checkout'])->name('checkout');
     Route::post('makeOrder', [OrderController::class, 'makeOrder'])->name('makeOrder');
     Route::post('deleteOrder', [OrderController::class, 'deleteOrder'])->name('deleteOrder');
+    Route::GET('showProducts/{id}', [OrderController::class, 'showProducts'])->name('showProducts');
 
 
 });

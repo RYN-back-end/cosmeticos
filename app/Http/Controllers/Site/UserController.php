@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProfileRequest;
+use App\Http\Requests\UserRegisterRequest;
 use App\Models\Cart;
 use App\Models\FavoriteProduct;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use App\Traits\ResponseTrait;
 use App\Traits\UploadFiles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -20,6 +25,36 @@ class UserController extends Controller
         return view('Site/User/profile',compact('orders'));
     }
 
+    public function updateProfile(UserRegisterRequest $request){
+        $validatedData = $request->validated();
+
+        // handle image
+        if($request->has('image')){
+            $validatedData['image'] = $this->saveFile($request->image,'assets/uploads/users','yes',70);
+            if (file_exists(loggedUser('image'))) {
+                unlink(loggedUser('image'));
+            }
+        }
+        else
+            unset($validatedData['image']);
+
+        // handle password
+        if($request->has('password') && $request->password != null)
+            $validatedData['password'] = Hash::make($request->password);
+        else
+            unset($validatedData['password']);
+
+        // update user
+        $user = User::find(loggedUser('id'));
+        $user->update($validatedData);
+        Auth::guard('user')->login($user);
+        return response()->json([
+            'status' => 200,
+            'message' => "تم تحديث بيانات الحساب بنجاح",
+            'name'    => loggedUser('name'),
+            'image'   => getUserImage(loggedUser('image'))
+        ]);
+    }
 
     // cart handle
     public function addToCart(request $request){
